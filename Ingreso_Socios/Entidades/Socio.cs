@@ -2,13 +2,13 @@
 
 public class Socio:Persona
 {
-    //private int? idSocio;
+    private int? idSocio;
     private List<Cuota> cuotas;
     private string nombre;
-    string apellido;
-    DateTime fechaNac;
-    int dni;
-    bool aptoFisico;
+    private string apellido;
+    private DateTime fechaNac;
+    private int dni;
+    private bool aptoFisico;
     public Socio() { }
 
     public Socio(string nombre, string apellido, DateTime fechaNac, int dni, bool aptoFisico, List<Cuota> cuotas)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ingreso_Socios.Datos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,20 +11,19 @@ using System.Windows.Forms;
 
 namespace Ingreso_Socios
 {
-    public partial class Login : Form
+    public partial class frmLogin : Form
     {
-        public Login()
+        public frmLogin()
         {
             InitializeComponent();
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void btnIngresar_Click(object sender, EventArgs e)
         {
+            Usuarios usuarios = new Usuarios();
+            DataTable dt = usuarios.Login(txtUsuario.Text, txtContrasena.Text);
 
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
+            return;
         }
     }
 }

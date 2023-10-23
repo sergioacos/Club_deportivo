@@ -16,13 +16,13 @@ namespace Ingreso_Socios.BD
         private string clave;
         private static Conexion? con = null;
 
-        private Conexion() 
+        public Conexion() 
         {
             this.baseDatos = "proyecto";
             this.servidor = "localhost";
             this.puerto = "3306";
-            this.usuario = "root";
-            this.clave = "";
+            this.usuario = "proyecto";
+            this.clave = "uzp/e*njsBxjTQN";
         }
         // proceso de interacción
         public MySqlConnection CrearConexion()
