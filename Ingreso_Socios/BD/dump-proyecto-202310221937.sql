@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
--- Host: localhost    Database: clubDeportivo
+-- Host: localhost    Database: proyecto
 -- ------------------------------------------------------
--- Server version	5.5.5-10.11.1-MariaDB
+-- Server version	8.0.34
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -23,11 +23,11 @@ DROP TABLE IF EXISTS `actividad`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actividad` (
-  `idActividad` int(11) NOT NULL AUTO_INCREMENT,
+  `idActividad` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `costo` float NOT NULL,
   PRIMARY KEY (`idActividad`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,15 +47,15 @@ DROP TABLE IF EXISTS `actividadnosocio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `actividadnosocio` (
-  `idActividad` int(11) NOT NULL,
-  `idNoSocio` int(11) NOT NULL,
-  `idActividadNoSocio` int(11) NOT NULL AUTO_INCREMENT,
+  `idActividad` int NOT NULL,
+  `idNoSocio` int NOT NULL,
+  `idActividadNoSocio` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`idActividadNoSocio`),
   KEY `actividadNoSocio_FK` (`idNoSocio`),
   KEY `actividadNoSocio_FK_1` (`idActividad`),
   CONSTRAINT `actividadNoSocio_FK` FOREIGN KEY (`idNoSocio`) REFERENCES `nosocio` (`idNoSocio`),
   CONSTRAINT `actividadNoSocio_FK_1` FOREIGN KEY (`idActividad`) REFERENCES `actividad` (`idActividad`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -75,8 +75,8 @@ DROP TABLE IF EXISTS `cuota`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cuota` (
-  `idCuota` int(11) NOT NULL AUTO_INCREMENT,
-  `idSocio` int(11) NOT NULL,
+  `idCuota` int NOT NULL AUTO_INCREMENT,
+  `idSocio` int NOT NULL,
   `monto` float NOT NULL,
   `fechaVencimiento` date NOT NULL,
   `periodio` varchar(100) NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE `cuota` (
   PRIMARY KEY (`idCuota`),
   KEY `cuota_FK` (`idSocio`),
   CONSTRAINT `cuota_FK` FOREIGN KEY (`idSocio`) REFERENCES `socio` (`idSocio`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,12 +105,12 @@ DROP TABLE IF EXISTS `nosocio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `nosocio` (
-  `idNoSocio` int(11) NOT NULL AUTO_INCREMENT,
-  `idPersona` int(11) NOT NULL,
+  `idNoSocio` int NOT NULL AUTO_INCREMENT,
+  `idPersona` int NOT NULL,
   PRIMARY KEY (`idNoSocio`),
   KEY `noSocio_FK` (`idPersona`),
   CONSTRAINT `noSocio_FK` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,14 +130,14 @@ DROP TABLE IF EXISTS `persona`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `persona` (
-  `idPersona` int(11) NOT NULL AUTO_INCREMENT,
+  `idPersona` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `apellido` varchar(100) NOT NULL,
   `fechaNac` date NOT NULL,
-  `dni` bigint(20) NOT NULL,
+  `dni` bigint NOT NULL,
   `aptoFisico` tinyint(1) NOT NULL,
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,12 +157,12 @@ DROP TABLE IF EXISTS `socio`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `socio` (
-  `idSocio` int(11) NOT NULL AUTO_INCREMENT,
-  `idPersona` int(11) NOT NULL,
+  `idSocio` int NOT NULL AUTO_INCREMENT,
+  `idPersona` int NOT NULL,
   PRIMARY KEY (`idSocio`),
   KEY `socio_FK` (`idPersona`),
   CONSTRAINT `socio_FK` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -175,7 +175,31 @@ LOCK TABLES `socio` WRITE;
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'clubDeportivo'
+-- Table structure for table `usuario`
+--
+
+DROP TABLE IF EXISTS `usuario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuario` (
+  `IdUsuario` int NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(100) NOT NULL,
+  `contrasena` varchar(100) NOT NULL,
+  PRIMARY KEY (`IdUsuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `usuario`
+--
+
+LOCK TABLES `usuario` WRITE;
+/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'proyecto'
 --
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -187,4 +211,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-21 21:20:25
+-- Dump completed on 2023-10-22 19:37:09
