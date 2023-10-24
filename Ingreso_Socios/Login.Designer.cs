@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             btnIngresar = new Button();
             txtUsuario = new TextBox();
             lblUsuario = new Label();
             lblContrasena = new Label();
             txtContrasena = new TextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            pbLogin = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pbLogin).BeginInit();
+            picLogin = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picLogin).BeginInit();
             SuspendLayout();
             // 
             // btnIngresar
@@ -80,22 +81,24 @@
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(167, 23);
             txtContrasena.TabIndex = 4;
+            txtContrasena.TextChanged += txtContrasena_TextChanged;
             // 
-            // pbLogin
+            // picLogin
             // 
-            pbLogin.Image = Properties.Resources.Discord_qBNOSAYkkA;
-            pbLogin.Location = new Point(12, 12);
-            pbLogin.Name = "pbLogin";
-            pbLogin.Size = new Size(166, 174);
-            pbLogin.TabIndex = 6;
-            pbLogin.TabStop = false;
+            picLogin.Image = (Image)resources.GetObject("picLogin.Image");
+            picLogin.Location = new Point(33, 30);
+            picLogin.Name = "picLogin";
+            picLogin.Size = new Size(138, 133);
+            picLogin.SizeMode = PictureBoxSizeMode.Zoom;
+            picLogin.TabIndex = 6;
+            picLogin.TabStop = false;
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(497, 214);
-            Controls.Add(pbLogin);
+            Controls.Add(picLogin);
             Controls.Add(lblContrasena);
             Controls.Add(txtContrasena);
             Controls.Add(lblUsuario);
@@ -103,7 +106,7 @@
             Controls.Add(btnIngresar);
             Name = "frmLogin";
             Text = "Ingreso Club Deportivo";
-            ((System.ComponentModel.ISupportInitialize)pbLogin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -116,6 +119,6 @@
         private Label lblContrasena;
         private TextBox txtContrasena;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private PictureBox pbLogin;
+        private PictureBox picLogin;
     }
 }

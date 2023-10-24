@@ -25,5 +25,10 @@ namespace Ingreso_Socios
 
             return;
         }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = true;
+        }
     }
 }
