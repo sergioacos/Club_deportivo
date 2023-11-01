@@ -137,7 +137,7 @@ CREATE TABLE `persona` (
   `dni` bigint NOT NULL,
   `aptoFisico` tinyint(1) NOT NULL,
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +146,32 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
+INSERT INTO `persona` VALUES (1,'sergio','acosta','1984-10-27',31309515,1),(2,'juan','Perez','2023-12-01',25,1),(3,'diego','Perez','2023-12-01',85,1),(4,'diego','Perez','2023-12-01',85,1),(5,'diego','Perez','2023-12-01',85,1),(6,'diego','Perez','2023-12-01',2325,1),(7,'diego','Perez','2023-12-01',2325,1),(8,'diego','Perez','2023-12-01',2325,1),(9,'jose','rodriguez','2023-12-01',30,1),(10,'jose','rodriguez','2023-12-01',30,1),(11,'jose','rodriguez','2023-12-01',30,1),(12,'jose','rodriguez','2023-12-01',30,1),(13,'jose','rodriguez','2023-12-01',29,1),(14,'jose','rodriguez','2023-12-01',29,1),(15,'jose','rodriguez','2023-12-01',29,1),(16,'jose','rodriguez','2023-12-01',29,1),(17,'jose','rodriguez','2023-12-01',29,1),(18,'jose','rodriguez','2023-12-01',29,1),(19,'jose','rodriguez','2023-12-01',78,1),(20,'jose','rodriguez','2023-12-01',8,1),(21,'tom','jerry','2023-10-30',4998,1),(22,'martin','diaz','2023-10-30',764982,0),(23,'jose','rodriguez','2023-12-01',1984,1),(24,'ian','toloza','1993-10-26',1567,1),(25,'jon','rod','2023-12-01',145,1),(26,'loss','coll','1899-10-25',24269,1),(27,'andres ','baez','1996-02-14',40296488,1),(28,'orlando','gimenez','2023-10-31',164978,0),(29,'alberto','fernandez','2023-10-31',123456,1),(30,'ricardo','caruzo','1989-05-07',234689,1);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roles` (
+  `Rol` int NOT NULL,
+  `NomRol` varchar(30) COLLATE latin1_bin DEFAULT NULL,
+  PRIMARY KEY (`Rol`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `roles`
+--
+
+LOCK TABLES `roles` WRITE;
+/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'Administrador'),(2,'Empleado');
+/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -162,7 +187,7 @@ CREATE TABLE `socio` (
   PRIMARY KEY (`idSocio`),
   KEY `socio_FK` (`idPersona`),
   CONSTRAINT `socio_FK` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,6 +196,7 @@ CREATE TABLE `socio` (
 
 LOCK TABLES `socio` WRITE;
 /*!40000 ALTER TABLE `socio` DISABLE KEYS */;
+INSERT INTO `socio` VALUES (3,20),(4,25),(5,26),(6,27),(7,28),(8,29),(9,30);
 /*!40000 ALTER TABLE `socio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -185,8 +211,10 @@ CREATE TABLE `usuario` (
   `IdUsuario` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `contrasena` varchar(100) NOT NULL,
+  `Rol` int DEFAULT NULL,
+  `Activo` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`IdUsuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,12 +223,74 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'juan','perez',1,1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'proyecto'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `IngresoLogin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `IngresoLogin`(in Usu varchar(20),in Pass varchar(15))
+begin
+  /* proyecto en la consulta el rol que tiene el usuario que ingresa */
+  
+  select NomRol
+	from usuario u inner join roles r on u.Rol = r.Rol
+		where nombre = Usu and contrasena = Pass /* se compara con los parametros */
+			and Activo = 1; /* el usuario debe estar activo */
+
+
+end ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `NuevoSocio` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `NuevoSocio`( in idP int, in Nom varchar(30),in Ape varchar(40),in Dni int, in Fnac Date, in Afis Bit,out rta int)
+BEGIN
+     declare existeP int default 0;
+	 declare existeS int default 0;
+	 declare idS int default 0;
+    
+     set existeP = (select count(*) from persona as p where p.dni= Dni);
+     if existeP = 0  then
+     	insert into persona values(idP,Nom,Ape,Fnac,Dni,Afis);
+     end if;
+	 set existeS = (select count(*) from persona as p join socio as s on p.idPersona = s.idPersona where p.dni=Dni);
+     set rta  = existeS;
+	 if existeS = 0 then
+		set idP = (select idPersona from persona as p where p.dni=Dni);
+		insert into socio values(ids,idP);
+		set rta  = (select idSocio from socio as s where s.idPersona=idP);
+	   else
+		 set rta = 0;
+      end if;		 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -211,4 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-22 19:37:09
+-- Dump completed on 2023-11-01 15:19:03

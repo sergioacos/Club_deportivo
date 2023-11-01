@@ -34,6 +34,7 @@
             btnSalir = new Button();
             lblUsuario = new Label();
             pictureBox1 = new PictureBox();
+            btnASocio = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(208, 15);
             lblUsuario.TabIndex = 4;
-            lblUsuario.Text = "Usuario: Ignacio Fiora (Administrador)";
+            lblUsuario.Text = "Usuario: ";
             // 
             // pictureBox1
             // 
@@ -91,11 +92,22 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
+            // btnASocio
+            // 
+            btnASocio.Location = new Point(12, 140);
+            btnASocio.Name = "btnASocio";
+            btnASocio.Size = new Size(148, 23);
+            btnASocio.TabIndex = 6;
+            btnASocio.Text = "Agregar Socio";
+            btnASocio.UseVisualStyleBackColor = true;
+            btnASocio.Click += btn_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(409, 188);
+            Controls.Add(btnASocio);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
             Controls.Add(btnSalir);
@@ -118,5 +130,6 @@
         private Button btnSalir;
         private Label lblUsuario;
         private PictureBox pictureBox1;
+        private Button btnASocio;
     }
 }

@@ -1,4 +1,4 @@
-﻿using Ingreso_Socios.BD;
+﻿using Ingreso_Socios.Datos;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -11,8 +11,10 @@ namespace Ingreso_Socios.Datos
 {
     internal class Usuarios
     {
+        
         public DataTable Login(string nombre, string contrasena)
         {
+            string? salida;
             MySqlDataReader resultado;
             DataTable tabla = new DataTable();
             
@@ -23,6 +25,7 @@ namespace Ingreso_Socios.Datos
                 sqlConn = Conexion.getInstancia().CrearConexion();
 
                 MySqlCommand comando = new MySqlCommand("IngresoLogin", sqlConn);
+                comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Add("Usu", MySqlDbType.VarChar).Value = nombre;
                 comando.Parameters.Add("Pass", MySqlDbType.VarChar).Value = contrasena;
@@ -36,6 +39,7 @@ namespace Ingreso_Socios.Datos
             }
             catch (Exception ex)
             {
+                salida = ex.Message;
                 throw;
             }
 

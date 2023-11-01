@@ -80,6 +80,7 @@
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(167, 23);
             txtContrasena.TabIndex = 4;
+            txtContrasena.Enter += txtContrasena_Enter;
             // 
             // pbLogin
             // 

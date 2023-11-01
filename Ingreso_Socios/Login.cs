@@ -21,9 +21,32 @@ namespace Ingreso_Socios
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             Usuarios usuarios = new Usuarios();
-            DataTable dt = usuarios.Login(txtUsuario.Text, txtContrasena.Text);
+            DataTable dt = new DataTable();
+            Datos.Usuarios dato = new Datos.Usuarios();
+            dt = dato.Login(txtUsuario.Text, txtContrasena.Text);
 
-            return;
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show("Ingreso exitoso");
+                Form menu = new Menu();
+                menu.Show();
+                //this.Close();
+            }
+            else
+            {
+                MessageBox.Show("El usuario y/o contaseña incorrecto ");
+
+
+            }
+
+
+
+        }
+
+        private void txtContrasena_Enter(object sender, EventArgs e)
+        {
+           
+            txtContrasena.UseSystemPasswordChar = true;
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
-namespace Ingreso_Socios.BD
+namespace Ingreso_Socios.Datos
 {
     public class Conexion
     {
@@ -20,9 +20,9 @@ namespace Ingreso_Socios.BD
         {
             this.baseDatos = "proyecto";
             this.servidor = "localhost";
-            this.puerto = "3306";
-            this.usuario = "proyecto";
-            this.clave = "uzp/e*njsBxjTQN";
+            this.puerto = "3307";
+            this.usuario = "root";
+            this.clave = "1234";
         }
         // proceso de interacción
         public MySqlConnection CrearConexion()
@@ -37,9 +37,10 @@ namespace Ingreso_Socios.BD
                     ";username=" + this.usuario +
                     ";password=" + this.clave +
                     ";Database=" + this.baseDatos;
-                }
-                catch (Exception ex)
+            }
+                catch (MySqlException ex)
                 {
+                MessageBox.Show("no sepudo conectar"+ex.ToString());/*agregue*/
                     cadena = null;
                     throw;
                 }
