@@ -57,5 +57,10 @@ namespace Ingreso_Socios
         {
 
         }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = true;
+        }
     }
 }

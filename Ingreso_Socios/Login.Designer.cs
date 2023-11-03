@@ -35,8 +35,8 @@
             lblContrasena = new Label();
             txtContrasena = new TextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            pbLogin = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pbLogin).BeginInit();
+            picLogin = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picLogin).BeginInit();
             SuspendLayout();
             // 
             // btnIngresar
@@ -83,7 +83,7 @@
             txtContrasena.TabIndex = 4;
             txtContrasena.Enter += txtContrasena_Enter;
             // 
-            // pbLogin
+            // picLogin
             // 
             pbLogin.Image = (Image)resources.GetObject("pbLogin.Image");
             pbLogin.Location = new Point(12, 12);
@@ -99,7 +99,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(497, 214);
-            Controls.Add(pbLogin);
+            Controls.Add(picLogin);
             Controls.Add(lblContrasena);
             Controls.Add(txtContrasena);
             Controls.Add(lblUsuario);
@@ -107,7 +107,7 @@
             Controls.Add(btnIngresar);
             Name = "frmLogin";
             Text = "Ingreso Club Deportivo";
-            ((System.ComponentModel.ISupportInitialize)pbLogin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,6 +120,6 @@
         private Label lblContrasena;
         private TextBox txtContrasena;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private PictureBox pbLogin;
+        private PictureBox picLogin;
     }
 }
