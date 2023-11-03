@@ -61,7 +61,7 @@ namespace Ingreso_Socios
                 bool esnumero = int.TryParse(respuesta, out int codigo);
                 if (esnumero)
                 {
-                    if (codigo == 1)
+                    if (codigo == 0)
                     {
                         MessageBox.Show("SOCIO YA EXISTE", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -71,7 +71,7 @@ namespace Ingreso_Socios
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         Form pagos = new Pagos();
-                        pagos.Show();
+                        pagos.ShowDialog();
                         //this.Close();
                     }
                 }
@@ -82,7 +82,7 @@ namespace Ingreso_Socios
         {
             Form menu = new Menu();
             menu.Show();
-            //this.Close();
+            this.Close();
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)

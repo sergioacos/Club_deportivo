@@ -30,8 +30,9 @@ namespace Ingreso_Socios
         private void btn_Click(object sender, EventArgs e)
         {
             Form socios = new Socios();
-            socios.Show();
-            //this.Close();
+            socios.ShowDialog();
+            this.Close();
+            
         }
     }
 }

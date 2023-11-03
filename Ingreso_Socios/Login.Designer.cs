@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             btnIngresar = new Button();
             txtUsuario = new TextBox();
             lblUsuario = new Label();
@@ -40,7 +41,7 @@
             // 
             // btnIngresar
             // 
-            btnIngresar.Location = new Point(193, 140);
+            btnIngresar.Location = new Point(244, 140);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(241, 23);
             btnIngresar.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(267, 54);
+            txtUsuario.Location = new Point(318, 40);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(167, 23);
             txtUsuario.TabIndex = 1;
@@ -58,7 +59,7 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Location = new Point(193, 57);
+            lblUsuario.Location = new Point(226, 40);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(47, 15);
             lblUsuario.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             lblContrasena.AutoSize = true;
             lblContrasena.Cursor = Cursors.SizeAll;
-            lblContrasena.Location = new Point(193, 86);
+            lblContrasena.Location = new Point(226, 86);
             lblContrasena.Name = "lblContrasena";
             lblContrasena.Size = new Size(67, 15);
             lblContrasena.TabIndex = 5;
@@ -76,7 +77,7 @@
             // 
             // txtContrasena
             // 
-            txtContrasena.Location = new Point(267, 83);
+            txtContrasena.Location = new Point(318, 83);
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(167, 23);
             txtContrasena.TabIndex = 4;
@@ -84,12 +85,14 @@
             // 
             // pbLogin
             // 
-            pbLogin.Image = Properties.Resources.Discord_qBNOSAYkkA;
+            pbLogin.Image = (Image)resources.GetObject("pbLogin.Image");
             pbLogin.Location = new Point(12, 12);
             pbLogin.Name = "pbLogin";
-            pbLogin.Size = new Size(166, 174);
+            pbLogin.Size = new Size(208, 174);
+            pbLogin.SizeMode = PictureBoxSizeMode.Zoom;
             pbLogin.TabIndex = 6;
             pbLogin.TabStop = false;
+            pbLogin.Click += pbLogin_Click;
             // 
             // frmLogin
             // 
