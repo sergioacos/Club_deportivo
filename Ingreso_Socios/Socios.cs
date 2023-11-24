@@ -40,7 +40,7 @@ namespace Ingreso_Socios
         {
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDni.Text == "")
             {
-                MessageBox.Show("Debe comletar los datos requeridos(*)",
+                MessageBox.Show("Debe completar los datos requeridos(*)",
                     "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else

@@ -85,14 +85,14 @@
             // 
             // picLogin
             // 
-            pbLogin.Image = (Image)resources.GetObject("pbLogin.Image");
-            pbLogin.Location = new Point(12, 12);
-            pbLogin.Name = "pbLogin";
-            pbLogin.Size = new Size(208, 174);
-            pbLogin.SizeMode = PictureBoxSizeMode.Zoom;
-            pbLogin.TabIndex = 6;
-            pbLogin.TabStop = false;
-            pbLogin.Click += pbLogin_Click;
+            //pbLogin.Image = (Image)resources.GetObject("pbLogin.Image");
+            //pbLogin.Location = new Point(12, 12);
+            //pbLogin.Name = "pbLogin";
+            //pbLogin.Size = new Size(208, 174);
+            //pbLogin.SizeMode = PictureBoxSizeMode.Zoom;
+            //pbLogin.TabIndex = 6;
+            //pbLogin.TabStop = false;
+            //pbLogin.Click += pbLogin_Click;
             // 
             // frmLogin
             // 

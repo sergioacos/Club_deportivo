@@ -29,14 +29,13 @@
         private void InitializeComponent()
         {
             dgvClientes = new DataGridView();
-            button1 = new Button();
-            Nombre = new DataGridViewTextBoxColumn();
+            btnRegistrar = new Button();
             Apellido = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             AptoFisico = new DataGridViewCheckBoxColumn();
-            Column4 = new DataGridViewCheckBoxColumn();
+            Socio = new DataGridViewCheckBoxColumn();
             Acciones = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             SuspendLayout();
@@ -44,7 +43,7 @@
             // dgvClientes
             // 
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Nombre, Apellido, Column1, Column2, Column3, AptoFisico, Column4, Acciones });
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones });
             dgvClientes.Location = new Point(12, 41);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.RowTemplate.Height = 25;
@@ -52,29 +51,25 @@
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button1
+            // btnRegistrar
             // 
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(141, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Registrar Cliente";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // Nombre
-            // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
+            btnRegistrar.Location = new Point(12, 12);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(141, 23);
+            btnRegistrar.TabIndex = 1;
+            btnRegistrar.Text = "Registrar Cliente";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
             // Apellido
             // 
             Apellido.HeaderText = "Apellido";
             Apellido.Name = "Apellido";
             // 
-            // Column1
+            // Nombre
             // 
-            Column1.HeaderText = "Tipo Cliente";
-            Column1.Name = "Column1";
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
             // 
             // Column2
             // 
@@ -91,10 +86,10 @@
             AptoFisico.HeaderText = "AptoFisico";
             AptoFisico.Name = "AptoFisico";
             // 
-            // Column4
+            // Socio
             // 
-            Column4.HeaderText = "Socio";
-            Column4.Name = "Column4";
+            Socio.HeaderText = "Socio";
+            Socio.Name = "Socio";
             // 
             // Acciones
             // 
@@ -106,10 +101,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(877, 316);
-            Controls.Add(button1);
+            Controls.Add(btnRegistrar);
             Controls.Add(dgvClientes);
             Name = "Clientes";
             Text = "Clientes";
+            Load += frmCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
             ResumeLayout(false);
         }
@@ -117,14 +113,14 @@
         #endregion
 
         private DataGridView dgvClientes;
-        private Button button1;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Apellido;
+        private Button btnRegistrar;
         private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Apellido;
+        private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewCheckBoxColumn AptoFisico;
-        private DataGridViewCheckBoxColumn Column4;
+        private DataGridViewCheckBoxColumn Socio;
         private DataGridViewButtonColumn Acciones;
     }
 }
