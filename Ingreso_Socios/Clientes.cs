@@ -49,13 +49,13 @@ namespace Ingreso_Socios
             {
                 string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                query = "select p.apellido, p.nombre, p.dni, p.fechaNac, p.aptoFisico, s.idSocio from persona p left join socio s on p.idPersona = s.idPersona order by p.apellido";
+                query = "select p.apellido, p.nombre, p.dni, p.fechaNac, p.aptoFisico, IFNULL(s.idSocio, 0) AS idSocio from persona p left join socio s on p.idPersona = s.idPersona order by p.apellido";
 
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
                 sqlCon.Open();
 
-                MySqlDataReader reader;
+                MySqlDataReader? reader;
                 reader = comando.ExecuteReader();
                 if (reader.HasRows)
                 {
@@ -67,16 +67,18 @@ namespace Ingreso_Socios
                         dgvClientes.Rows[renglon].Cells[2].Value = reader.GetString(2);
                         dgvClientes.Rows[renglon].Cells[3].Value = reader.GetString(3);
                         dgvClientes.Rows[renglon].Cells[4].Value = reader.GetString(4);
-                        //dgvClientes.Rows[renglon].Cells[5].Value = reader.GetString(5);
-
-                        //if(!reader.IsDBNull(reader.GetString(5)))
-                       // {
-                       //     dgvClientes.Rows[renglon].Cells[5].Value = "1";
-                       // }
-                       //else
-                      //  {
-                       //     dgvClientes.Rows[renglon].Cells[5].Value = "0";
-                      //   }
+                        if (reader.GetString(5) != "0")
+                        { dgvClientes.Rows[renglon].Cells[5].Value = "true"; }
+                        else { dgvClientes.Rows[renglon].Cells[5].Value = "false"; }
+                        
+                      /* if(!reader.IsDBNull(reader.GetString(5)))
+                        {
+                            dgvClientes.Rows[renglon].Cells[5].Value = "1";
+                        }
+                       else
+                        {
+                            dgvClientes.Rows[renglon].Cells[5].Value = "0";
+                         }*/
                         
                     }
                 }
