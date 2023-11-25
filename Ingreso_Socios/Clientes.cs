@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Ingreso_Socios
         public Clientes()
         {
             InitializeComponent();
-            //CargarGrilla();
+            
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -65,18 +66,29 @@ namespace Ingreso_Socios
                         dgvClientes.Rows[renglon].Cells[0].Value = reader.GetString(0);
                         dgvClientes.Rows[renglon].Cells[1].Value = reader.GetString(1);
                         dgvClientes.Rows[renglon].Cells[2].Value = reader.GetString(2);
-                        dgvClientes.Rows[renglon].Cells[3].Value = reader.GetString(3);
-                        dgvClientes.Rows[renglon].Cells[4].Value = reader.GetString(4);
-                        //dgvClientes.Rows[renglon].Cells[5].Value = reader.GetString(5);
+                        
+                        string fecha = reader.GetString(3);
+                        //string fechaNac = string.Join("/", fecha.Split('-').Reverse());
+                        DateTime fechaNac2 = DateTime.ParseExact(fecha, "d/M/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
+                        //DateTime fechaSinHora = fechaNac2.Date;
+                        DateTime fechaActual = DateTime.Now;
+                        //int edad = fechaActual.Year - fechaNac2.Year;
+                        TimeSpan diferencia = fechaActual - fechaNac2;
+                        double dias = diferencia.TotalDays;
+                        double anos = Math.Floor(dias / 365);
+                        dgvClientes.Rows[renglon].Cells[3].Value = anos;
 
-                        //if(!reader.IsDBNull(reader.GetString(5)))
-                       // {
-                       //     dgvClientes.Rows[renglon].Cells[5].Value = "1";
-                       // }
-                       //else
-                      //  {
-                       //     dgvClientes.Rows[renglon].Cells[5].Value = "0";
-                      //   }
+                        dgvClientes.Rows[renglon].Cells[4].Value = reader.GetString(4);
+                        
+                        //dgvClientes.Rows[renglon].Cells[5].Value = reader.GetString(5);
+                        if(!reader.IsDBNull(5))
+                        {
+                            dgvClientes.Rows[renglon].Cells[5].Value = true;
+                        }
+                       else
+                        {
+                            dgvClientes.Rows[renglon].Cells[5].Value = false;
+                         }
                         
                     }
                 }
