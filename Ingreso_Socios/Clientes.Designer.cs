@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dgvClientes = new DataGridView();
             btnRegistrar = new Button();
+            personaBindingSource = new BindingSource(components);
             Apellido = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -38,16 +40,20 @@
             Socio = new DataGridViewCheckBoxColumn();
             Acciones = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)personaBindingSource).BeginInit();
             SuspendLayout();
             // 
             // dgvClientes
             // 
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToDeleteRows = false;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones });
-            dgvClientes.Location = new Point(12, 41);
+            dgvClientes.Location = new Point(12, 51);
             dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
             dgvClientes.RowTemplate.Height = 25;
-            dgvClientes.Size = new Size(853, 267);
+            dgvClientes.Size = new Size(837, 267);
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -61,40 +67,52 @@
             btnRegistrar.UseVisualStyleBackColor = true;
             btnRegistrar.Click += btnRegistrar_Click;
             // 
+            // personaBindingSource
+            // 
+            personaBindingSource.DataSource = typeof(Persona);
+            // 
             // Apellido
             // 
             Apellido.HeaderText = "Apellido";
             Apellido.Name = "Apellido";
+            Apellido.ReadOnly = true;
             // 
             // Nombre
             // 
             Nombre.HeaderText = "Nombre";
             Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "DNI";
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
             Column3.HeaderText = "Edad";
             Column3.Name = "Column3";
+            Column3.ReadOnly = true;
             // 
             // AptoFisico
             // 
             AptoFisico.HeaderText = "AptoFisico";
             AptoFisico.Name = "AptoFisico";
+            AptoFisico.ReadOnly = true;
             // 
             // Socio
             // 
             Socio.HeaderText = "Socio";
             Socio.Name = "Socio";
+            Socio.ReadOnly = true;
+            Socio.Resizable = DataGridViewTriState.True;
             // 
             // Acciones
             // 
             Acciones.HeaderText = "Acciones";
             Acciones.Name = "Acciones";
+            Acciones.ReadOnly = true;
             // 
             // Clientes
             // 
@@ -107,6 +125,7 @@
             Text = "Clientes";
             Load += frmCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)personaBindingSource).EndInit();
             ResumeLayout(false);
         }
 
@@ -115,6 +134,13 @@
         private DataGridView dgvClientes;
         private Button btnRegistrar;
         private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn idPersonaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fechaNacDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn aptoFisicoDataGridViewCheckBoxColumn;
+        private BindingSource personaBindingSource;
         private DataGridViewTextBoxColumn Apellido;
         private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Column2;
