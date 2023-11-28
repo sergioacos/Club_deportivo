@@ -30,7 +30,11 @@ namespace Ingreso_Socios
                 MessageBox.Show("Ingreso exitoso");
                 Form menu = new Menu();
                 menu.Show();
-                //this.Close();
+                //this.Hide();
+                this.WindowState = FormWindowState.Minimized;
+                //ShowInTaskbar = true;
+
+
             }
             else
             {
@@ -45,7 +49,17 @@ namespace Ingreso_Socios
 
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-           
+
+            txtContrasena.UseSystemPasswordChar = true;
+        }
+
+        private void pbLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
             txtContrasena.UseSystemPasswordChar = true;
         }
     }
