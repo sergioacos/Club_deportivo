@@ -28,103 +28,125 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             dgvClientes = new DataGridView();
-            button1 = new Button();
-            Nombre = new DataGridViewTextBoxColumn();
+            btnRegistrar = new Button();
+            personaBindingSource = new BindingSource(components);
             Apellido = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
+            Nombre = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
             AptoFisico = new DataGridViewCheckBoxColumn();
-            Column4 = new DataGridViewCheckBoxColumn();
+            Socio = new DataGridViewCheckBoxColumn();
             Acciones = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)personaBindingSource).BeginInit();
             SuspendLayout();
             // 
             // dgvClientes
             // 
+            dgvClientes.AllowUserToAddRows = false;
+            dgvClientes.AllowUserToDeleteRows = false;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Nombre, Apellido, Column1, Column2, Column3, AptoFisico, Column4, Acciones });
-            dgvClientes.Location = new Point(12, 41);
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones });
+            dgvClientes.Location = new Point(12, 51);
             dgvClientes.Name = "dgvClientes";
+            dgvClientes.ReadOnly = true;
             dgvClientes.RowTemplate.Height = 25;
-            dgvClientes.Size = new Size(853, 267);
+            dgvClientes.Size = new Size(837, 267);
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // button1
+            // btnRegistrar
             // 
-            button1.Location = new Point(12, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(141, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Registrar Cliente";
-            button1.UseVisualStyleBackColor = true;
+            btnRegistrar.Location = new Point(12, 12);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(141, 23);
+            btnRegistrar.TabIndex = 1;
+            btnRegistrar.Text = "Registrar Cliente";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
             // 
-            // Nombre
+            // personaBindingSource
             // 
-            Nombre.HeaderText = "Nombre";
-            Nombre.Name = "Nombre";
+            personaBindingSource.DataSource = typeof(Persona);
             // 
             // Apellido
             // 
             Apellido.HeaderText = "Apellido";
             Apellido.Name = "Apellido";
+            Apellido.ReadOnly = true;
             // 
-            // Column1
+            // Nombre
             // 
-            Column1.HeaderText = "Tipo Cliente";
-            Column1.Name = "Column1";
+            Nombre.HeaderText = "Nombre";
+            Nombre.Name = "Nombre";
+            Nombre.ReadOnly = true;
             // 
             // Column2
             // 
             Column2.HeaderText = "DNI";
             Column2.Name = "Column2";
+            Column2.ReadOnly = true;
             // 
             // Column3
             // 
             Column3.HeaderText = "Edad";
             Column3.Name = "Column3";
+            Column3.ReadOnly = true;
             // 
             // AptoFisico
             // 
             AptoFisico.HeaderText = "AptoFisico";
             AptoFisico.Name = "AptoFisico";
+            AptoFisico.ReadOnly = true;
             // 
-            // Column4
+            // Socio
             // 
-            Column4.HeaderText = "Socio";
-            Column4.Name = "Column4";
+            Socio.HeaderText = "Socio";
+            Socio.Name = "Socio";
+            Socio.ReadOnly = true;
+            Socio.Resizable = DataGridViewTriState.True;
             // 
             // Acciones
             // 
             Acciones.HeaderText = "Acciones";
             Acciones.Name = "Acciones";
+            Acciones.ReadOnly = true;
             // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(877, 316);
-            Controls.Add(button1);
+            Controls.Add(btnRegistrar);
             Controls.Add(dgvClientes);
             Name = "Clientes";
             Text = "Clientes";
+            Load += frmCliente_Load;
             ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)personaBindingSource).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private DataGridView dgvClientes;
-        private Button button1;
-        private DataGridViewTextBoxColumn Nombre;
-        private DataGridViewTextBoxColumn Apellido;
+        private Button btnRegistrar;
         private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn idPersonaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn fechaNacDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn dniDataGridViewTextBoxColumn;
+        private DataGridViewCheckBoxColumn aptoFisicoDataGridViewCheckBoxColumn;
+        private BindingSource personaBindingSource;
+        private DataGridViewTextBoxColumn Apellido;
+        private DataGridViewTextBoxColumn Nombre;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
         private DataGridViewCheckBoxColumn AptoFisico;
-        private DataGridViewCheckBoxColumn Column4;
+        private DataGridViewCheckBoxColumn Socio;
         private DataGridViewButtonColumn Acciones;
     }
 }

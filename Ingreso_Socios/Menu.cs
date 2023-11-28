@@ -24,7 +24,9 @@ namespace Ingreso_Socios
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Form clientes = new Clientes();
+            clientes.ShowDialog();
+            this.Close();
         }
 
         private void btn_Click(object sender, EventArgs e)
