@@ -1,5 +1,5 @@
 ﻿using Ingreso_Socios.Datos;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -21,7 +21,6 @@ namespace Ingreso_Socios.Datos
             MySqlConnection sqlConn = new MySqlConnection();
             try
             {
-
                 sqlConn = Conexion.getInstancia().CrearConexion();
 
                 MySqlCommand comando = new MySqlCommand("IngresoLogin", sqlConn);

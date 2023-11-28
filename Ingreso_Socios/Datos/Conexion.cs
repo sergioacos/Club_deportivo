@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 
 namespace Ingreso_Socios.Datos
 {
@@ -20,8 +20,8 @@ namespace Ingreso_Socios.Datos
         {
             this.baseDatos = "proyecto";
             this.servidor = "localhost";
-            this.puerto = "3307";
-            this.usuario = "root";
+            this.puerto = "3306";
+            this.usuario = "proyecto";
             this.clave = "1234";
         }
         // proceso de interacción
