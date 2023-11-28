@@ -28,19 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             btnIngresar = new Button();
             txtUsuario = new TextBox();
             lblUsuario = new Label();
             lblContrasena = new Label();
             txtContrasena = new TextBox();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            pbLogin = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pbLogin).BeginInit();
+            picLogin = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picLogin).BeginInit();
             SuspendLayout();
             // 
             // btnIngresar
             // 
-            btnIngresar.Location = new Point(193, 140);
+            btnIngresar.Location = new Point(244, 140);
             btnIngresar.Name = "btnIngresar";
             btnIngresar.Size = new Size(241, 23);
             btnIngresar.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(267, 54);
+            txtUsuario.Location = new Point(318, 40);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(167, 23);
             txtUsuario.TabIndex = 1;
@@ -58,7 +59,7 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Location = new Point(193, 57);
+            lblUsuario.Location = new Point(226, 40);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(47, 15);
             lblUsuario.TabIndex = 2;
@@ -68,7 +69,7 @@
             // 
             lblContrasena.AutoSize = true;
             lblContrasena.Cursor = Cursors.SizeAll;
-            lblContrasena.Location = new Point(193, 86);
+            lblContrasena.Location = new Point(226, 86);
             lblContrasena.Name = "lblContrasena";
             lblContrasena.Size = new Size(67, 15);
             lblContrasena.TabIndex = 5;
@@ -76,27 +77,29 @@
             // 
             // txtContrasena
             // 
-            txtContrasena.Location = new Point(267, 83);
+            txtContrasena.Location = new Point(318, 83);
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(167, 23);
             txtContrasena.TabIndex = 4;
             txtContrasena.Enter += txtContrasena_Enter;
             // 
-            // pbLogin
+            // picLogin
             // 
-            pbLogin.Image = Properties.Resources.Discord_qBNOSAYkkA;
-            pbLogin.Location = new Point(12, 12);
-            pbLogin.Name = "pbLogin";
-            pbLogin.Size = new Size(166, 174);
-            pbLogin.TabIndex = 6;
-            pbLogin.TabStop = false;
+            //pbLogin.Image = (Image)resources.GetObject("pbLogin.Image");
+            //pbLogin.Location = new Point(12, 12);
+            //pbLogin.Name = "pbLogin";
+            //pbLogin.Size = new Size(208, 174);
+            //pbLogin.SizeMode = PictureBoxSizeMode.Zoom;
+            //pbLogin.TabIndex = 6;
+            //pbLogin.TabStop = false;
+            //pbLogin.Click += pbLogin_Click;
             // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(497, 214);
-            Controls.Add(pbLogin);
+            Controls.Add(picLogin);
             Controls.Add(lblContrasena);
             Controls.Add(txtContrasena);
             Controls.Add(lblUsuario);
@@ -104,7 +107,7 @@
             Controls.Add(btnIngresar);
             Name = "frmLogin";
             Text = "Ingreso Club Deportivo";
-            ((System.ComponentModel.ISupportInitialize)pbLogin).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -117,6 +120,6 @@
         private Label lblContrasena;
         private TextBox txtContrasena;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private PictureBox pbLogin;
+        private PictureBox picLogin;
     }
 }
