@@ -26,5 +26,17 @@ namespace Ingreso_Socios
         {
 
         }
+
+        private void btnPagar_Click(object sender, EventArgs e)
+        {
+            Form pagar = new Pagar();
+            pagar.ShowDialog();
+            this.Hide();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

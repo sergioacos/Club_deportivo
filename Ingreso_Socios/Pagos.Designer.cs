@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            dateTimePicker1 = new DateTimePicker();
-            label1 = new Label();
-            label2 = new Label();
-            textBox1 = new TextBox();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewButtonColumn();
             Column4 = new DataGridViewCheckBoxColumn();
+            dateTimePicker1 = new DateTimePicker();
+            label1 = new Label();
+            label2 = new Label();
+            textBox1 = new TextBox();
+            btnPagar = new Button();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -45,12 +47,37 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column5, Column3, Column4 });
-            dataGridView1.Location = new Point(12, 70);
+            dataGridView1.Location = new Point(10, 70);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
             dataGridView1.Size = new Size(586, 250);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Cliente";
+            Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Vencimiento";
+            Column2.Name = "Column2";
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "Monto";
+            Column5.Name = "Column5";
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Acciones";
+            Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "Pagado";
+            Column4.Name = "Column4";
             // 
             // dateTimePicker1
             // 
@@ -58,6 +85,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(234, 23);
             dateTimePicker1.TabIndex = 1;
+            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
             // 
             // label1
             // 
@@ -85,36 +113,32 @@
             textBox1.Size = new Size(234, 23);
             textBox1.TabIndex = 4;
             // 
-            // Column1
+            // btnPagar
             // 
-            Column1.HeaderText = "Cliente";
-            Column1.Name = "Column1";
+            btnPagar.Location = new Point(361, 18);
+            btnPagar.Name = "btnPagar";
+            btnPagar.Size = new Size(114, 35);
+            btnPagar.TabIndex = 5;
+            btnPagar.Text = "Pagar";
+            btnPagar.UseVisualStyleBackColor = true;
+            btnPagar.Click += btnPagar_Click;
             // 
-            // Column2
+            // btnCancelar
             // 
-            Column2.HeaderText = "Vencimiento";
-            Column2.Name = "Column2";
-            // 
-            // Column5
-            // 
-            Column5.HeaderText = "Monto";
-            Column5.Name = "Column5";
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Acciones";
-            Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            Column4.HeaderText = "Pagado";
-            Column4.Name = "Column4";
+            btnCancelar.Location = new Point(482, 18);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(114, 35);
+            btnCancelar.TabIndex = 6;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // Pagos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(608, 332);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnPagar);
             Controls.Add(textBox1);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -139,5 +163,7 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewButtonColumn Column3;
         private DataGridViewCheckBoxColumn Column4;
+        private Button btnPagar;
+        private Button btnCancelar;
     }
 }
