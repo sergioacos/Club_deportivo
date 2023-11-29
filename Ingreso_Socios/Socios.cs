@@ -7,35 +7,6 @@ namespace Ingreso_Socios
             InitializeComponent();
         }
 
-        private void lblNomSocio_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblDNI_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePickerFechaN_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void textDni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             if (txtNombre.Text == "" || txtApellido.Text == "" || txtDni.Text == "")
@@ -70,9 +41,7 @@ namespace Ingreso_Socios
                         MessageBox.Show("Se almaceno con exito el socio Nro " + respuesta, "AVISO DEL SISTEMA",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        Form pagos = new Pagos();
-                        pagos.ShowDialog();
-                        //this.Close();
+                        this.Close();
                     }
                 }
             }
@@ -80,8 +49,6 @@ namespace Ingreso_Socios
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            Form menu = new Menu();
-            menu.Show();
             this.Close();
         }
 

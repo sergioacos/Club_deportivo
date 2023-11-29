@@ -49,7 +49,6 @@
             lblNomSocio.Size = new Size(102, 15);
             lblNomSocio.TabIndex = 1;
             lblNomSocio.Text = "Nombre del Socio";
-            lblNomSocio.Click += lblNomSocio_Click;
             // 
             // lblApSocio
             // 
@@ -83,7 +82,6 @@
             lblDNI.Size = new Size(44, 15);
             lblDNI.TabIndex = 5;
             lblDNI.Text = "DNI N°";
-            lblDNI.Click += lblDNI_Click;
             // 
             // txtDni
             // 
@@ -91,7 +89,6 @@
             txtDni.Name = "txtDni";
             txtDni.Size = new Size(230, 23);
             txtDni.TabIndex = 6;
-            txtDni.TextChanged += textDni_TextChanged;
             // 
             // chkAptoFisico
             // 
@@ -102,7 +99,6 @@
             chkAptoFisico.TabIndex = 7;
             chkAptoFisico.Text = "Apto Fisico";
             chkAptoFisico.UseVisualStyleBackColor = true;
-            chkAptoFisico.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // dateTimePickerFechaN
             // 
@@ -113,7 +109,6 @@
             dateTimePickerFechaN.Name = "dateTimePickerFechaN";
             dateTimePickerFechaN.Size = new Size(125, 23);
             dateTimePickerFechaN.TabIndex = 8;
-            dateTimePickerFechaN.ValueChanged += dateTimePickerFechaN_ValueChanged;
             // 
             // lblFechaNac
             // 
