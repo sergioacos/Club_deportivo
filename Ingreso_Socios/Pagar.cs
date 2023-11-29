@@ -1,5 +1,5 @@
 ﻿using Ingreso_Socios.Datos;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,12 +25,10 @@ namespace Ingreso_Socios
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
-                string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-               // query = "select p.apellido, p.nombre, p.dni, p.fechaNac, p.aptoFisico, s.idSocio from persona p left join socio s on p.idPersona = s.idPersona order by p.apellido";
 
-                MySqlCommand comando = new MySqlCommand(query, sqlCon);
-                comando.CommandType = CommandType.Text;
+                MySqlCommand comando = new MySqlCommand("CrearCuota", sqlCon);
+
                 sqlCon.Open();
 
                 MySqlDataReader reader;
@@ -77,11 +75,6 @@ namespace Ingreso_Socios
                     sqlCon.Close();
                 }
             }
-        }
-
-        private void Pagar_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

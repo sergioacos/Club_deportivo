@@ -40,17 +40,19 @@
             textBox1 = new TextBox();
             btnPagar = new Button();
             btnCancelar = new Button();
+            btnAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
+            dataGridView1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column5, Column3, Column4 });
             dataGridView1.Location = new Point(10, 70);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(586, 250);
+            dataGridView1.Size = new Size(868, 250);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -115,7 +117,8 @@
             // 
             // btnPagar
             // 
-            btnPagar.Location = new Point(361, 18);
+            btnPagar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnPagar.Location = new Point(644, 18);
             btnPagar.Name = "btnPagar";
             btnPagar.Size = new Size(114, 35);
             btnPagar.TabIndex = 5;
@@ -125,18 +128,31 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(482, 18);
+            btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnCancelar.Location = new Point(764, 18);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(114, 35);
             btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(524, 18);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.RightToLeft = RightToLeft.No;
+            btnAgregar.Size = new Size(114, 35);
+            btnAgregar.TabIndex = 7;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // Pagos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(608, 332);
+            ClientSize = new Size(890, 332);
+            Controls.Add(btnAgregar);
             Controls.Add(btnCancelar);
             Controls.Add(btnPagar);
             Controls.Add(textBox1);
@@ -165,5 +181,6 @@
         private DataGridViewCheckBoxColumn Column4;
         private Button btnPagar;
         private Button btnCancelar;
+        private Button btnAgregar;
     }
 }

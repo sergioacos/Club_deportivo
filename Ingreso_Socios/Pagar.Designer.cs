@@ -35,11 +35,15 @@
             grbFormaPago = new GroupBox();
             chkTarjeta = new CheckBox();
             chkEfectivo = new CheckBox();
-            txtNSocio = new TextBox();
-            nudFactura = new NumericUpDown();
+            textBox1 = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
+            label2 = new Label();
+            numericUpDown1 = new NumericUpDown();
+            label3 = new Label();
+            textBox2 = new TextBox();
             label1 = new Label();
             grbFormaPago.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)nudFactura).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // lblNSocio
@@ -54,7 +58,7 @@
             // btnComprobante
             // 
             btnComprobante.Enabled = false;
-            btnComprobante.Location = new Point(399, 222);
+            btnComprobante.Location = new Point(322, 460);
             btnComprobante.Name = "btnComprobante";
             btnComprobante.Size = new Size(149, 44);
             btnComprobante.TabIndex = 1;
@@ -63,7 +67,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(215, 222);
+            btnCancelar.Location = new Point(167, 460);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(149, 44);
             btnCancelar.TabIndex = 2;
@@ -72,7 +76,7 @@
             // 
             // btnPagar
             // 
-            btnPagar.Location = new Point(38, 222);
+            btnPagar.Location = new Point(12, 460);
             btnPagar.Name = "btnPagar";
             btnPagar.Size = new Size(149, 44);
             btnPagar.TabIndex = 3;
@@ -84,7 +88,7 @@
             // 
             grbFormaPago.Controls.Add(chkTarjeta);
             grbFormaPago.Controls.Add(chkEfectivo);
-            grbFormaPago.Location = new Point(379, 43);
+            grbFormaPago.Location = new Point(386, 268);
             grbFormaPago.Name = "grbFormaPago";
             grbFormaPago.Size = new Size(169, 140);
             grbFormaPago.TabIndex = 4;
@@ -111,38 +115,73 @@
             chkEfectivo.Text = "Efectivo";
             chkEfectivo.UseVisualStyleBackColor = true;
             // 
-            // txtNSocio
+            // textBox1
             // 
-            txtNSocio.Location = new Point(38, 82);
-            txtNSocio.Name = "txtNSocio";
-            txtNSocio.Size = new Size(156, 23);
-            txtNSocio.TabIndex = 5;
-            txtNSocio.Text = "Ingrese N° Socio";
+            textBox1.Location = new Point(167, 61);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 8;
             // 
-            // nudFactura
+            // dateTimePicker1
             // 
-            nudFactura.Location = new Point(237, 82);
-            nudFactura.Name = "nudFactura";
-            nudFactura.Size = new Size(98, 23);
-            nudFactura.TabIndex = 6;
+            dateTimePicker1.Location = new Point(35, 216);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 9;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(167, 43);
+            label2.Name = "label2";
+            label2.Size = new Size(43, 15);
+            label2.TabIndex = 10;
+            label2.Text = "Monto";
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(42, 61);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(120, 23);
+            numericUpDown1.TabIndex = 11;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(35, 198);
+            label3.Name = "label3";
+            label3.Size = new Size(126, 15);
+            label3.TabIndex = 12;
+            label3.Text = "Fecha de Vencimiento:";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(85, 286);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 13;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(226, 43);
+            label1.Location = new Point(83, 268);
             label1.Name = "label1";
-            label1.Size = new Size(109, 15);
-            label1.TabIndex = 7;
-            label1.Text = "Numero de Factura";
+            label1.Size = new Size(54, 15);
+            label1.TabIndex = 14;
+            label1.Text = "Periodo: ";
             // 
             // Pagar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(567, 297);
+            ClientSize = new Size(567, 516);
             Controls.Add(label1);
-            Controls.Add(nudFactura);
-            Controls.Add(txtNSocio);
+            Controls.Add(textBox2);
+            Controls.Add(label3);
+            Controls.Add(numericUpDown1);
+            Controls.Add(label2);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(textBox1);
             Controls.Add(grbFormaPago);
             Controls.Add(btnPagar);
             Controls.Add(btnCancelar);
@@ -150,10 +189,9 @@
             Controls.Add(lblNSocio);
             Name = "Pagar";
             Text = "Pagar";
-            Load += Pagar_Load;
             grbFormaPago.ResumeLayout(false);
             grbFormaPago.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)nudFactura).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,8 +205,12 @@
         private GroupBox grbFormaPago;
         private CheckBox chkTarjeta;
         private CheckBox chkEfectivo;
-        private TextBox txtNSocio;
-        private NumericUpDown nudFactura;
+        private TextBox textBox1;
+        private DateTimePicker dateTimePicker1;
+        private Label label2;
+        private NumericUpDown numericUpDown1;
+        private Label label3;
+        private TextBox textBox2;
         private Label label1;
     }
 }
