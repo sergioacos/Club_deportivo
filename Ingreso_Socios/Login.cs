@@ -56,7 +56,7 @@ namespace Ingreso_Socios
 
         private void txtContrasena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)13)
+            if (e.KeyChar == (char)13)
             {
                 btnIngresar.PerformClick();
             }

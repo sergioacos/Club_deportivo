@@ -10,6 +10,7 @@ public class Cuota
     private string periodio;
     private string medioPago;
     private DateTime fechaEmision;
+    private DateTime? fechaPago;
 
     public Cuota()
     {
@@ -23,6 +24,7 @@ public class Cuota
         this.Periodio = periodio;
         this.MedioPago = medioPago;
         this.FechaEmision = fechaEmision;
+        this.fechaPago = null;
     }
 
     public int? IdCuota { get => idCuota; set => idCuota = value; }
@@ -31,4 +33,5 @@ public class Cuota
     public string Periodio { get => periodio; set => periodio = value; }
     public string MedioPago { get => medioPago; set => medioPago = value; }
     public DateTime FechaEmision { get => fechaEmision; set => fechaEmision = value; }
+    public DateTime? FechaPago { get => fechaPago; set => fechaPago = value; }
 }

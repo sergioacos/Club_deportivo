@@ -11,7 +11,7 @@ namespace Ingreso_Socios.Datos
 {
     internal class Socios
     {
-        public string Nuevo_Socio(Socio socio)
+        public static string NuevoSocio(Socio socio)
         {
             string? salida;
             MySqlConnection sqlConn = new MySqlConnection();
@@ -57,5 +57,79 @@ namespace Ingreso_Socios.Datos
             }
             return salida;
         }
+
+        public static bool ValidarIdSocio(int idSocio)
+        {
+            MySqlDataReader resultado;
+            DataTable tabla = new DataTable();
+
+            MySqlConnection sqlConn = new MySqlConnection();
+            try
+            {
+                sqlConn = Conexion.getInstancia().CrearConexion();
+
+                MySqlCommand comando = new MySqlCommand("ValidarIdSocio", sqlConn);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("idSocio", MySqlDbType.Int64).Value = idSocio;
+
+                sqlConn.Open();
+                resultado = comando.ExecuteReader();
+
+                tabla.Load(resultado);
+                if (tabla.Rows.Count > 0)
+                    return true;
+                else
+                    return false;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlConn.State == ConnectionState.Open)
+                {
+                    sqlConn.Close();
+                }
+            }
+        }
+
+        public static DataTable ObtenerSocios()
+        {
+
+            MySqlDataReader resultado;
+            DataTable tabla = new DataTable();
+
+            MySqlConnection sqlConn = new MySqlConnection();
+            try
+            {
+                sqlConn = Conexion.getInstancia().CrearConexion();
+
+                MySqlCommand comando = new MySqlCommand("ObtenerSocios", sqlConn);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                sqlConn.Open();
+                resultado = comando.ExecuteReader();
+
+
+                tabla.Load(resultado);
+
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (sqlConn.State == ConnectionState.Open)
+                {
+                    sqlConn.Close();
+                }
+            }
+        }
+
     }
 }

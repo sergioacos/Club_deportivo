@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox2 = new TextBox();
+            txtPeriodo = new TextBox();
             label3 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            txtIdSocio = new NumericUpDown();
             label2 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            textBox1 = new TextBox();
+            txtFechaVencimiento = new DateTimePicker();
+            txtMonto = new TextBox();
             lblNSocio = new Label();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)txtIdSocio).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -50,13 +50,13 @@
             label1.TabIndex = 22;
             label1.Text = "Periodo: ";
             // 
-            // textBox2
+            // txtPeriodo
             // 
-            textBox2.Location = new Point(14, 159);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(198, 23);
-            textBox2.TabIndex = 21;
+            txtPeriodo.Location = new Point(14, 159);
+            txtPeriodo.Name = "txtPeriodo";
+            txtPeriodo.ReadOnly = true;
+            txtPeriodo.Size = new Size(198, 23);
+            txtPeriodo.TabIndex = 21;
             // 
             // label3
             // 
@@ -67,12 +67,13 @@
             label3.TabIndex = 20;
             label3.Text = "Fecha de Vencimiento:";
             // 
-            // numericUpDown1
+            // txtIdSocio
             // 
-            numericUpDown1.Location = new Point(12, 27);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(200, 23);
-            numericUpDown1.TabIndex = 19;
+            txtIdSocio.Location = new Point(12, 27);
+            txtIdSocio.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
+            txtIdSocio.Name = "txtIdSocio";
+            txtIdSocio.Size = new Size(200, 23);
+            txtIdSocio.TabIndex = 19;
             // 
             // label2
             // 
@@ -83,20 +84,21 @@
             label2.TabIndex = 18;
             label2.Text = "Monto";
             // 
-            // dateTimePicker1
+            // txtFechaVencimiento
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(12, 115);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 17;
+            txtFechaVencimiento.Format = DateTimePickerFormat.Short;
+            txtFechaVencimiento.Location = new Point(12, 115);
+            txtFechaVencimiento.Name = "txtFechaVencimiento";
+            txtFechaVencimiento.Size = new Size(200, 23);
+            txtFechaVencimiento.TabIndex = 17;
+            txtFechaVencimiento.ValueChanged += txtFechaVencimiento_ValueChanged;
             // 
-            // textBox1
+            // txtMonto
             // 
-            textBox1.Location = new Point(12, 71);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(200, 23);
-            textBox1.TabIndex = 16;
+            txtMonto.Location = new Point(12, 71);
+            txtMonto.Name = "txtMonto";
+            txtMonto.Size = new Size(200, 23);
+            txtMonto.TabIndex = 16;
             // 
             // lblNSocio
             // 
@@ -116,6 +118,7 @@
             btnAceptar.TabIndex = 23;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += btnAceptar_Click;
             // 
             // btnCancelar
             // 
@@ -126,6 +129,7 @@
             btnCancelar.TabIndex = 24;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // Cuota
             // 
@@ -135,16 +139,17 @@
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(label1);
-            Controls.Add(textBox2);
+            Controls.Add(txtPeriodo);
             Controls.Add(label3);
-            Controls.Add(numericUpDown1);
+            Controls.Add(txtIdSocio);
             Controls.Add(label2);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(textBox1);
+            Controls.Add(txtFechaVencimiento);
+            Controls.Add(txtMonto);
             Controls.Add(lblNSocio);
             Name = "Cuota";
             Text = "Cuota";
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            Load += Cuota_Load;
+            ((System.ComponentModel.ISupportInitialize)txtIdSocio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -152,12 +157,12 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox2;
+        private TextBox txtPeriodo;
         private Label label3;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown txtIdSocio;
         private Label label2;
-        private DateTimePicker dateTimePicker1;
-        private TextBox textBox1;
+        private DateTimePicker txtFechaVencimiento;
+        private TextBox txtMonto;
         private Label lblNSocio;
         private Button btnAceptar;
         private Button btnCancelar;
