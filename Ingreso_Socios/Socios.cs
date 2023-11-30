@@ -18,30 +18,63 @@ namespace Ingreso_Socios
             {
                 Datos.Conexion conexion1 = new Datos.Conexion();
                 conexion1.CrearConexion();
+                if(chkSocio.Checked) { 
+                    String respuesta;
+                    Socio socio = new Socio();
+                    socio.Nombre = txtNombre.Text;
+                    socio.Apellido = txtApellido.Text;
+                    socio.Dni = Convert.ToInt32(txtDni.Text);
+                    socio.FechaNac = Convert.ToDateTime(dateTimePickerFechaN.Text);
+                    socio.AptoFisico = chkAptoFisico.Checked;
+                    //socio.Cuotas = Convert.cboCuota.Text;
+                    respuesta = Datos.Socios.NuevoSocio(socio);
+                    bool esnumero = int.TryParse(respuesta, out int codigo);
+                    if (esnumero)
+                    {
+                        if (codigo == 0)
+                        {
+                            MessageBox.Show("SOCIO YA EXISTE", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se almaceno con exito el socio Nro " + respuesta, "AVISO DEL SISTEMA",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                String respuesta;
-                Socio socio = new Socio();
-                socio.Nombre = txtNombre.Text;
-                socio.Apellido = txtApellido.Text;
-                socio.Dni = Convert.ToInt32(txtDni.Text);
-                socio.FechaNac = Convert.ToDateTime(dateTimePickerFechaN.Text);
-                socio.AptoFisico = chkAptoFisico.Checked;
-                //socio.Cuotas = Convert.cboCuota.Text;
-                respuesta = Datos.Socios.NuevoSocio(socio);
-                bool esnumero = int.TryParse(respuesta, out int codigo);
-                if (esnumero)
+                            this.Close();
+                            Form pagar = new Pagar();
+                            pagar.ShowDialog();
+                        }
+                    }
+                }
+                else
                 {
-                    if (codigo == 0)
+                    String respuesta;
+                    NoSocio nosocio = new NoSocio();
+                    nosocio.Nombre = txtNombre.Text;
+                    nosocio.Apellido = txtApellido.Text;
+                    nosocio.Dni = Convert.ToInt32(txtDni.Text);
+                    nosocio.FechaNac = Convert.ToDateTime(dateTimePickerFechaN.Text);
+                    nosocio.AptoFisico = chkAptoFisico.Checked;
+                    
+                    respuesta = Datos.NoSocios.NuevoNoSocio(nosocio);
+                    bool esnumero = int.TryParse(respuesta, out int codigo);
+                    if (esnumero)
                     {
-                        MessageBox.Show("SOCIO YA EXISTE", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Se almaceno con exito el socio Nro " + respuesta, "AVISO DEL SISTEMA",
-                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (codigo == 0)
+                        {
+                            MessageBox.Show("EL CLIENTE YA EXISTE", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Se almaceno con exito el cliente Nro " + respuesta, "AVISO DEL SISTEMA",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        this.Close();
+                            
+                            Form actividad = new Actividades();
+                            actividad.ShowDialog();
+                        }
                     }
+
                 }
             }
         }
@@ -57,6 +90,11 @@ namespace Ingreso_Socios
         }
 
         private void Socios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
