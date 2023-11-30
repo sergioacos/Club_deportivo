@@ -56,6 +56,7 @@
             btnPagos.TabIndex = 1;
             btnPagos.Text = "Gestionar Pagos";
             btnPagos.UseVisualStyleBackColor = true;
+            btnPagos.Click += btnPagos_Click;
             // 
             // btnActividades
             // 
@@ -68,7 +69,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(317, 5);
+            btnSalir.Location = new Point(85, 169);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 3;
@@ -87,9 +88,9 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(186, 53);
+            pictureBox1.Location = new Point(186, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(206, 116);
+            pictureBox1.Size = new Size(206, 177);
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
@@ -107,7 +108,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(409, 188);
+            ClientSize = new Size(409, 201);
             Controls.Add(btnASocio);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);

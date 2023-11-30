@@ -27,8 +27,7 @@ namespace Ingreso_Socios
                 socio.FechaNac = Convert.ToDateTime(dateTimePickerFechaN.Text);
                 socio.AptoFisico = chkAptoFisico.Checked;
                 //socio.Cuotas = Convert.cboCuota.Text;
-                Datos.Socios socios = new Datos.Socios();
-                respuesta = socios.Nuevo_Socio(socio);
+                respuesta = Datos.Socios.NuevoSocio(socio);
                 bool esnumero = int.TryParse(respuesta, out int codigo);
                 if (esnumero)
                 {

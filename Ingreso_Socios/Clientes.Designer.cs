@@ -30,8 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dgvClientes = new DataGridView();
-            btnRegistrar = new Button();
-            personaBindingSource = new BindingSource(components);
             Apellido = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -39,6 +37,8 @@
             AptoFisico = new DataGridViewCheckBoxColumn();
             Socio = new DataGridViewCheckBoxColumn();
             Acciones = new DataGridViewButtonColumn();
+            btnRegistrar = new Button();
+            personaBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)personaBindingSource).BeginInit();
             SuspendLayout();
@@ -47,29 +47,16 @@
             // 
             dgvClientes.AllowUserToAddRows = false;
             dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones });
             dgvClientes.Location = new Point(12, 51);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.RowTemplate.Height = 25;
-            dgvClientes.Size = new Size(837, 267);
+            dgvClientes.Size = new Size(788, 282);
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // btnRegistrar
-            // 
-            btnRegistrar.Location = new Point(12, 12);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(141, 23);
-            btnRegistrar.TabIndex = 1;
-            btnRegistrar.Text = "Registrar Cliente";
-            btnRegistrar.UseVisualStyleBackColor = true;
-            btnRegistrar.Click += btnRegistrar_Click;
-            // 
-            // personaBindingSource
-            // 
-            personaBindingSource.DataSource = typeof(Persona);
             // 
             // Apellido
             // 
@@ -114,11 +101,25 @@
             Acciones.Name = "Acciones";
             Acciones.ReadOnly = true;
             // 
+            // btnRegistrar
+            // 
+            btnRegistrar.Location = new Point(12, 12);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(141, 23);
+            btnRegistrar.TabIndex = 1;
+            btnRegistrar.Text = "Registrar Cliente";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
+            // 
+            // personaBindingSource
+            // 
+            personaBindingSource.DataSource = typeof(Persona);
+            // 
             // Clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(877, 316);
+            ClientSize = new Size(812, 345);
             Controls.Add(btnRegistrar);
             Controls.Add(dgvClientes);
             Name = "Clientes";

@@ -42,5 +42,10 @@ namespace Ingreso_Socios
             Application.Exit();
         }
 
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            Form pagos = new Pagos();
+            pagos.ShowDialog();
+        }
     }
 }

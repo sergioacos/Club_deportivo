@@ -28,117 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column5 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewButtonColumn();
-            Column4 = new DataGridViewCheckBoxColumn();
-            dateTimePicker1 = new DateTimePicker();
-            label1 = new Label();
+            dgvCuotas = new DataGridView();
+            cliente = new DataGridViewTextBoxColumn();
+            fechaVencimiento = new DataGridViewTextBoxColumn();
+            monto = new DataGridViewTextBoxColumn();
+            pagado = new DataGridViewCheckBoxColumn();
+            medioPago = new DataGridViewTextBoxColumn();
+            fechaEmision = new DataGridViewTextBoxColumn();
+            acciones = new DataGridViewButtonColumn();
             label2 = new Label();
-            textBox1 = new TextBox();
-            btnPagar = new Button();
+            txtBusqueda = new TextBox();
             btnCancelar = new Button();
             btnAgregar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvCuotas
             // 
-            dataGridView1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column5, Column3, Column4 });
-            dataGridView1.Location = new Point(10, 70);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(868, 250);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            dgvCuotas.AllowUserToAddRows = false;
+            dgvCuotas.AllowUserToDeleteRows = false;
+            dgvCuotas.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCuotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { cliente, fechaVencimiento, monto, pagado, medioPago, fechaEmision, acciones });
+            dgvCuotas.Location = new Point(10, 70);
+            dgvCuotas.Name = "dgvCuotas";
+            dgvCuotas.ReadOnly = true;
+            dgvCuotas.RowTemplate.Height = 25;
+            dgvCuotas.Size = new Size(794, 250);
+            dgvCuotas.TabIndex = 0;
+            dgvCuotas.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // Column1
+            // cliente
             // 
-            Column1.HeaderText = "Cliente";
-            Column1.Name = "Column1";
+            cliente.HeaderText = "Cliente";
+            cliente.Name = "cliente";
+            cliente.ReadOnly = true;
             // 
-            // Column2
+            // fechaVencimiento
             // 
-            Column2.HeaderText = "Vencimiento";
-            Column2.Name = "Column2";
+            fechaVencimiento.HeaderText = "Vencimiento";
+            fechaVencimiento.Name = "fechaVencimiento";
+            fechaVencimiento.ReadOnly = true;
             // 
-            // Column5
+            // monto
             // 
-            Column5.HeaderText = "Monto";
-            Column5.Name = "Column5";
+            monto.HeaderText = "Monto";
+            monto.Name = "monto";
+            monto.ReadOnly = true;
             // 
-            // Column3
+            // pagado
             // 
-            Column3.HeaderText = "Acciones";
-            Column3.Name = "Column3";
+            pagado.HeaderText = "Pagado";
+            pagado.Name = "pagado";
+            pagado.ReadOnly = true;
             // 
-            // Column4
+            // medioPago
             // 
-            Column4.HeaderText = "Pagado";
-            Column4.Name = "Column4";
+            medioPago.HeaderText = "Medio de Pago";
+            medioPago.Name = "medioPago";
+            medioPago.ReadOnly = true;
             // 
-            // dateTimePicker1
+            // fechaEmision
             // 
-            dateTimePicker1.Location = new Point(96, 12);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(234, 23);
-            dateTimePicker1.TabIndex = 1;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            fechaEmision.HeaderText = "Fecha de Emision";
+            fechaEmision.Name = "fechaEmision";
+            fechaEmision.ReadOnly = true;
             // 
-            // label1
+            // acciones
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(15, 18);
-            label1.Name = "label1";
-            label1.Size = new Size(75, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Fecha Venc.: ";
-            label1.Click += label1_Click;
+            acciones.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            acciones.HeaderText = "Acciones";
+            acciones.Name = "acciones";
+            acciones.ReadOnly = true;
+            acciones.Text = "Pagar";
+            acciones.Width = 61;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(16, 44);
+            label2.Location = new Point(12, 28);
             label2.Name = "label2";
             label2.Size = new Size(45, 15);
             label2.TabIndex = 3;
             label2.Text = "Buscar:";
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            textBox1.Location = new Point(96, 41);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(234, 23);
-            textBox1.TabIndex = 4;
-            // 
-            // btnPagar
-            // 
-            btnPagar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnPagar.Location = new Point(644, 18);
-            btnPagar.Name = "btnPagar";
-            btnPagar.Size = new Size(114, 35);
-            btnPagar.TabIndex = 5;
-            btnPagar.Text = "Pagar";
-            btnPagar.UseVisualStyleBackColor = true;
-            btnPagar.Click += btnPagar_Click;
+            txtBusqueda.Location = new Point(63, 25);
+            txtBusqueda.Name = "txtBusqueda";
+            txtBusqueda.Size = new Size(234, 23);
+            txtBusqueda.TabIndex = 4;
+            txtBusqueda.TextChanged += txtBusqueda_TextChanged;
             // 
             // btnCancelar
             // 
             btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCancelar.Location = new Point(764, 18);
+            btnCancelar.Location = new Point(690, 18);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(114, 35);
             btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(524, 18);
+            btnAgregar.Anchor = AnchorStyles.Right;
+            btnAgregar.Location = new Point(570, 18);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.RightToLeft = RightToLeft.No;
             btnAgregar.Size = new Size(114, 35);
@@ -151,36 +147,33 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(890, 332);
+            ClientSize = new Size(816, 332);
             Controls.Add(btnAgregar);
             Controls.Add(btnCancelar);
-            Controls.Add(btnPagar);
-            Controls.Add(textBox1);
+            Controls.Add(txtBusqueda);
             Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(dateTimePicker1);
-            Controls.Add(dataGridView1);
+            Controls.Add(dgvCuotas);
             Name = "Pagos";
             Text = "Pagos";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += Pagos_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvCuotas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private DateTimePicker dateTimePicker1;
-        private Label label1;
+        private DataGridView dgvCuotas;
         private Label label2;
-        private TextBox textBox1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewButtonColumn Column3;
-        private DataGridViewCheckBoxColumn Column4;
-        private Button btnPagar;
+        private TextBox txtBusqueda;
         private Button btnCancelar;
         private Button btnAgregar;
+        private DataGridViewTextBoxColumn cliente;
+        private DataGridViewTextBoxColumn fechaVencimiento;
+        private DataGridViewTextBoxColumn monto;
+        private DataGridViewCheckBoxColumn pagado;
+        private DataGridViewTextBoxColumn medioPago;
+        private DataGridViewTextBoxColumn fechaEmision;
+        private DataGridViewButtonColumn acciones;
     }
 }

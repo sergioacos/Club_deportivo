@@ -85,9 +85,9 @@
             // 
             // picLogin
             // 
-            picLogin.Location = new Point(0, 0);
+            picLogin.Location = new Point(12, 12);
             picLogin.Name = "picLogin";
-            picLogin.Size = new Size(100, 50);
+            picLogin.Size = new Size(208, 190);
             picLogin.TabIndex = 0;
             picLogin.TabStop = false;
             // 
