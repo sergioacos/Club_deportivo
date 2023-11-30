@@ -68,7 +68,7 @@ namespace Ingreso_Socios.Datos
             {
                 sqlConn = Conexion.getInstancia().CrearConexion();
 
-                MySqlCommand comando = new MySqlCommand("ValidarIdSocio", sqlConn);
+                MySqlCommand comando = new MySqlCommand("ObtenerSocioPorId", sqlConn);
                 comando.CommandType = CommandType.StoredProcedure;
 
                 comando.Parameters.Add("idSocio", MySqlDbType.Int64).Value = idSocio;
@@ -81,6 +81,53 @@ namespace Ingreso_Socios.Datos
                     return true;
                 else
                     return false;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlConn.State == ConnectionState.Open)
+                {
+                    sqlConn.Close();
+                }
+            }
+        }
+
+        public static Socio? ObtenerPorId(int idSocio) {
+            MySqlDataReader resultado;
+            DataTable tabla = new DataTable();
+
+            MySqlConnection sqlConn = new MySqlConnection();
+            try
+            {
+                sqlConn = Conexion.getInstancia().CrearConexion();
+
+                MySqlCommand comando = new MySqlCommand("ObtenerSocioPorId", sqlConn);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("idSocio", MySqlDbType.Int64).Value = idSocio;
+
+                sqlConn.Open();
+                resultado = comando.ExecuteReader();
+
+                tabla.Load(resultado);
+                if (tabla.Rows.Count == 1)
+                {
+                    Socio socio  = new Socio();
+                    socio.Nombre = tabla.Rows[0]["nombre"].ToString();
+                    socio.Apellido = tabla.Rows[0]["apellido"].ToString();
+                    socio.Dni = Convert.ToInt32(tabla.Rows[0]["dni"].ToString());
+                    socio.FechaNac = Convert.ToDateTime(tabla.Rows[0]["fechaNac"].ToString());
+                    socio.AptoFisico = Convert.ToBoolean(tabla.Rows[0]["aptoFisico"].ToString());
+                    socio.IdSocio = Convert.ToInt32(tabla.Rows[0]["idSocio"].ToString());
+                    socio.IdPersona = Convert.ToInt32(tabla.Rows[0]["idPersona"].ToString());
+
+                    return socio;
+                }
+                else
+                    return null;
             }
             catch (Exception ex)
             {

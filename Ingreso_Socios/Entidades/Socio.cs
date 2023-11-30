@@ -34,4 +34,5 @@ private bool aptoFisico;*/
     public int Dni { get => dni; set => dni = value; }
     public bool AptoFisico { get => aptoFisico; set => aptoFisico = value; }*/
     public List<Cuota> Cuotas { get => cuotas; set => cuotas = value; }
+    public int? IdSocio { get => idSocio; set => idSocio = value; }
 }
