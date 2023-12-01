@@ -36,11 +36,7 @@
             fechaEmision = new DataGridViewTextBoxColumn();
             acciones = new DataGridViewButtonColumn();
             lblNombre = new Label();
-            txtNombre = new TextBox();
-            lblApellido = new Label();
-            txtApellido = new TextBox();
-            lablDni = new Label();
-            txtDni = new TextBox();
+            lblDni = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
             // 
@@ -48,14 +44,14 @@
             // 
             dgvCuotas.AllowUserToAddRows = false;
             dgvCuotas.AllowUserToDeleteRows = false;
-            dgvCuotas.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvCuotas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCuotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { fechaVencimiento, monto, pagado, medioPago, fechaEmision, acciones });
-            dgvCuotas.Location = new Point(12, 102);
+            dgvCuotas.Location = new Point(12, 61);
             dgvCuotas.Name = "dgvCuotas";
             dgvCuotas.ReadOnly = true;
             dgvCuotas.RowTemplate.Height = 25;
-            dgvCuotas.Size = new Size(785, 275);
+            dgvCuotas.Size = new Size(764, 262);
             dgvCuotas.TabIndex = 1;
             // 
             // fechaVencimiento
@@ -100,62 +96,28 @@
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(12, 42);
+            lblNombre.Location = new Point(12, 9);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(51, 15);
             lblNombre.TabIndex = 2;
             lblNombre.Text = "Nombre";
             lblNombre.Click += label1_Click;
             // 
-            // txtNombre
+            // lblDni
             // 
-            txtNombre.Location = new Point(69, 39);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(130, 23);
-            txtNombre.TabIndex = 3;
-            // 
-            // lblApellido
-            // 
-            lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(215, 42);
-            lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(51, 15);
-            lblApellido.TabIndex = 4;
-            lblApellido.Text = "Apellido";
-            // 
-            // txtApellido
-            // 
-            txtApellido.Location = new Point(281, 39);
-            txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(153, 23);
-            txtApellido.TabIndex = 5;
-            // 
-            // lablDni
-            // 
-            lablDni.AutoSize = true;
-            lablDni.Location = new Point(470, 42);
-            lablDni.Name = "lablDni";
-            lablDni.Size = new Size(27, 15);
-            lablDni.TabIndex = 6;
-            lablDni.Text = "DNI";
-            // 
-            // txtDni
-            // 
-            txtDni.Location = new Point(517, 39);
-            txtDni.Name = "txtDni";
-            txtDni.Size = new Size(153, 23);
-            txtDni.TabIndex = 7;
+            lblDni.AutoSize = true;
+            lblDni.Location = new Point(12, 24);
+            lblDni.Name = "lblDni";
+            lblDni.Size = new Size(27, 15);
+            lblDni.TabIndex = 6;
+            lblDni.Text = "DNI";
             // 
             // PagoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(txtDni);
-            Controls.Add(lablDni);
-            Controls.Add(txtApellido);
-            Controls.Add(lblApellido);
-            Controls.Add(txtNombre);
+            ClientSize = new Size(788, 335);
+            Controls.Add(lblDni);
             Controls.Add(lblNombre);
             Controls.Add(dgvCuotas);
             Name = "PagoSocio";
@@ -176,10 +138,6 @@
         private DataGridViewTextBoxColumn fechaEmision;
         private DataGridViewButtonColumn acciones;
         private Label lblNombre;
-        private Label lblApellido;
-        private Label lablDni;
-        public TextBox txtNombre;
-        public TextBox txtApellido;
-        public TextBox txtDni;
+        private Label lblDni;
     }
 }

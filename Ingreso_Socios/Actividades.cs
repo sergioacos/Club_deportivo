@@ -52,7 +52,7 @@ namespace Ingreso_Socios
                     {
                         int renglon = dgvActividades.Rows.Add();
                         dgvActividades.Rows[renglon].Cells[0].Value = reader.GetString(0);
-                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetString(1);
+                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
 
 
                     }
@@ -101,11 +101,7 @@ namespace Ingreso_Socios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form menu = new Menu("TEST");
-            menu.ShowDialog();
-            //this.Close();
-
-
+            this.Close();
         }
     }
 }
