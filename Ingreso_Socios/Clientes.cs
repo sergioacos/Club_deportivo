@@ -122,12 +122,12 @@ namespace Ingreso_Socios
                 string nombre = dgvClientes.CurrentRow.Cells[1].Value.ToString();
                 dni = (int)dgvClientes.CurrentRow.Cells[2].Value;
                 //MessageBox.Show("Listo" + dni);
-                Pagar pagar = new Pagar();
-                pagar.txtApellido.Text = apellido;
-                pagar.txtNombre.Text = nombre;
-                pagar.txtDni.Text = dni.ToString();
+                PagoSocio pagos = new PagoSocio();
+                pagos.txtApellido.Text = apellido;
+                pagos.txtNombre.Text = nombre;
+                pagos.txtDni.Text = dni.ToString();
 
-                pagar.ShowDialog();
+                pagos.ShowDialog();
                 this.Close();
             
 
