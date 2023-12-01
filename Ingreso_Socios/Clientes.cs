@@ -111,12 +111,12 @@ namespace Ingreso_Socios
         }
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int dni;
+            Int64 dni;
             if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
             {
                 //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
-                dni = (int)dgvClientes.CurrentRow.Cells[2].Value;
-                MessageBox.Show("Listo" + dni);
+                dni = (Int64)dgvClientes.CurrentRow.Cells[2].Value;
+                MessageBox.Show("Listo " + dni);
 
             }
         }

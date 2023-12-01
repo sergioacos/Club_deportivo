@@ -56,6 +56,7 @@
             dgvCuotas.RowTemplate.Height = 25;
             dgvCuotas.Size = new Size(794, 250);
             dgvCuotas.TabIndex = 0;
+            dgvCuotas.CellClick += dgvCuotas_CellClick;
             dgvCuotas.CellContentClick += dataGridView1_CellContentClick;
             // 
             // cliente
@@ -102,6 +103,7 @@
             acciones.ReadOnly = true;
             acciones.Text = "Pagar";
             acciones.Width = 61;
+            acciones.UseColumnTextForButtonValue = true;
             // 
             // label2
             // 

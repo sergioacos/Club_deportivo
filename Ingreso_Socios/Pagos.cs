@@ -108,5 +108,17 @@ namespace Ingreso_Socios
                 throw;
             }
         }
-    }
+        private void dgvCuotas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Int64 dni;
+            if (this.dgvCuotas.Columns[e.ColumnIndex].Name == "acciones")
+            {
+                Form pagar = new Pagar();
+                pagar.ShowDialog();
+                //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
+               // dni = (Int64)dgvCuotas.CurrentRow.Cells[2].Value;
+               // MessageBox.Show("Listo " + dni);
+
+            }
+     }   }
 }
