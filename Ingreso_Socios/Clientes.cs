@@ -63,10 +63,13 @@ namespace Ingreso_Socios
                 {
                     while (reader.Read())
                     {
+                        //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
+                        //btnclm.Name = "Ver pagos";
                         int renglon = dgvClientes.Rows.Add();
                         dgvClientes.Rows[renglon].Cells[0].Value = reader.GetString(0);
                         dgvClientes.Rows[renglon].Cells[1].Value = reader.GetString(1);
-                        dgvClientes.Rows[renglon].Cells[2].Value = reader.GetInt64(2);
+                        dgvClientes.Rows[renglon].Cells[2].Value = reader.GetInt32(2);
+                        //dgvClientes.Rows[renglon].Cells[6].Value = btnclm;
 
                         DateTime fechaNac2 = reader.GetDateTime(3);
                         //string fechaNac = string.Join("/", fecha.Split('-').Reverse());
@@ -130,6 +133,30 @@ namespace Ingreso_Socios
                 //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
               //  dni = (Int64)dgvClientes.CurrentRow.Cells[2].Value;
                 //MessageBox.Show("Listo " + dni);
+
+            }
+        }
+
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int dni;
+            if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
+            {
+                //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
+                string apellido = dgvClientes.CurrentRow.Cells[0].Value.ToString();
+                string nombre = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+                dni = (int)dgvClientes.CurrentRow.Cells[2].Value;
+                //MessageBox.Show("Listo" + dni);
+                PagoSocio pagos = new PagoSocio();
+                pagos.txtApellido.Text = apellido;
+                pagos.txtNombre.Text = nombre;
+                pagos.txtDni.Text = dni.ToString();
+
+                pagos.ShowDialog();
+                this.Close();
+            
+
+
 
             }
         }

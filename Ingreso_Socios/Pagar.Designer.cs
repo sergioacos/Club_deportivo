@@ -42,6 +42,12 @@
             label3 = new Label();
             textBox2 = new TextBox();
             label1 = new Label();
+            label4 = new Label();
+            txtApellido = new TextBox();
+            txtNombre = new TextBox();
+            label5 = new Label();
+            label6 = new Label();
+            txtDni = new TextBox();
             grbFormaPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
@@ -117,14 +123,14 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(167, 61);
+            textBox1.Location = new Point(216, 341);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 8;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(35, 216);
+            dateTimePicker1.Location = new Point(35, 224);
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 9;
@@ -132,7 +138,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(167, 43);
+            label2.Location = new Point(216, 312);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 10;
@@ -148,7 +154,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(35, 198);
+            label3.Location = new Point(35, 190);
             label3.Name = "label3";
             label3.Size = new Size(126, 15);
             label3.TabIndex = 12;
@@ -156,7 +162,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(85, 286);
+            textBox2.Location = new Point(83, 341);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(100, 23);
             textBox2.TabIndex = 13;
@@ -164,17 +170,72 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(83, 268);
+            label1.Location = new Point(84, 308);
             label1.Name = "label1";
             label1.Size = new Size(54, 15);
             label1.TabIndex = 14;
             label1.Text = "Periodo: ";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(38, 103);
+            label4.Name = "label4";
+            label4.Size = new Size(51, 15);
+            label4.TabIndex = 15;
+            label4.Text = "Apellido";
+            label4.Click += label4_Click;
+            // 
+            // txtApellido
+            // 
+            txtApellido.Location = new Point(38, 121);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(100, 23);
+            txtApellido.TabIndex = 16;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(167, 121);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 17;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(167, 103);
+            label5.Name = "label5";
+            label5.Size = new Size(51, 15);
+            label5.TabIndex = 18;
+            label5.Text = "Nombre";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(295, 103);
+            label6.Name = "label6";
+            label6.Size = new Size(27, 15);
+            label6.TabIndex = 19;
+            label6.Text = "DNI";
+            // 
+            // txtDni
+            // 
+            txtDni.Location = new Point(295, 121);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(100, 23);
+            txtDni.TabIndex = 20;
             // 
             // Pagar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(567, 516);
+            Controls.Add(txtDni);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(txtNombre);
+            Controls.Add(txtApellido);
+            Controls.Add(label4);
             Controls.Add(label1);
             Controls.Add(textBox2);
             Controls.Add(label3);
@@ -212,5 +273,11 @@
         private Label label3;
         private TextBox textBox2;
         private Label label1;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        public TextBox txtApellido;
+        public TextBox txtNombre;
+        public TextBox txtDni;
     }
 }
