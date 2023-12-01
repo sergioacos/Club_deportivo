@@ -39,12 +39,13 @@
             // 
             // dgvActividades
             // 
+            dgvActividades.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvActividades.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvActividades.Columns.AddRange(new DataGridViewColumn[] { Nombre, Column1, Column2 });
             dgvActividades.Location = new Point(12, 41);
             dgvActividades.Name = "dgvActividades";
             dgvActividades.RowTemplate.Height = 25;
-            dgvActividades.Size = new Size(454, 150);
+            dgvActividades.Size = new Size(474, 177);
             dgvActividades.TabIndex = 0;
             dgvActividades.CellContentClick += dataGridView1_CellContentClick;
             // 

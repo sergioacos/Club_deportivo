@@ -1,5 +1,5 @@
 ﻿using Ingreso_Socios.Datos;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using MySqlX.XDevAPI.Relational;
 using System;
 using System.Collections.Generic;
@@ -100,11 +100,11 @@ namespace Ingreso_Socios
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form menu = new Menu();
+            Form menu = new Menu("TEST");
             menu.Show();
             this.Close();
 
-          
+
         }
     }
 }
