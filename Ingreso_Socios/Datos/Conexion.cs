@@ -77,8 +77,8 @@ __________________ */
 
             this.baseDatos = "proyecto";
             this.servidor = "localhost"; //T_servidor;
-            this.puerto = "3306"; //T_puerto;
-            this.usuario = "proyecto";//T_usuario;
+            this.puerto = "3307"; //T_puerto;
+            this.usuario = "root";//T_usuario;
             this.clave = "1234";//T_clave;
         }
         // proceso de interacción
