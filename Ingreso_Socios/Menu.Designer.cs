@@ -46,7 +46,7 @@
             btnClientes.TabIndex = 0;
             btnClientes.Text = "Gestionar Clientes";
             btnClientes.UseVisualStyleBackColor = true;
-            btnClientes.Click += button1_Click;
+            btnClientes.Click += btnClientes_Click;
             // 
             // btnPagos
             // 
@@ -56,6 +56,7 @@
             btnPagos.TabIndex = 1;
             btnPagos.Text = "Gestionar Pagos";
             btnPagos.UseVisualStyleBackColor = true;
+            btnPagos.Click += btnPagos_Click;
             // 
             // btnActividades
             // 
@@ -69,12 +70,13 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(317, 5);
+            btnSalir.Location = new Point(85, 169);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 3;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // lblUsuario
             // 
@@ -87,9 +89,9 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(186, 53);
+            pictureBox1.Location = new Point(186, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(206, 116);
+            pictureBox1.Size = new Size(206, 177);
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
@@ -101,13 +103,13 @@
             btnASocio.TabIndex = 6;
             btnASocio.Text = "Agregar Socio";
             btnASocio.UseVisualStyleBackColor = true;
-            btnASocio.Click += btn_Click;
+            btnASocio.Click += btnASocio_Click;
             // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(409, 188);
+            ClientSize = new Size(409, 201);
             Controls.Add(btnASocio);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
@@ -117,7 +119,7 @@
             Controls.Add(btnClientes);
             Name = "Menu";
             Text = "Menu";
-            Load += Menu_Load;
+            FormClosed += Menu_FormClosed;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             btnIngresar = new Button();
             txtUsuario = new TextBox();
             lblUsuario = new Label();
@@ -81,18 +80,16 @@
             txtContrasena.Name = "txtContrasena";
             txtContrasena.Size = new Size(167, 23);
             txtContrasena.TabIndex = 4;
-            txtContrasena.Enter += txtContrasena_Enter;
+            txtContrasena.UseSystemPasswordChar = true;
+            txtContrasena.KeyPress += txtContrasena_KeyPress;
             // 
             // picLogin
             // 
-            //pbLogin.Image = (Image)resources.GetObject("pbLogin.Image");
-            //pbLogin.Location = new Point(12, 12);
-            //pbLogin.Name = "pbLogin";
-            //pbLogin.Size = new Size(208, 174);
-            //pbLogin.SizeMode = PictureBoxSizeMode.Zoom;
-            //pbLogin.TabIndex = 6;
-            //pbLogin.TabStop = false;
-            //pbLogin.Click += pbLogin_Click;
+            picLogin.Location = new Point(12, 12);
+            picLogin.Name = "picLogin";
+            picLogin.Size = new Size(208, 190);
+            picLogin.TabIndex = 0;
+            picLogin.TabStop = false;
             // 
             // frmLogin
             // 
@@ -107,6 +104,7 @@
             Controls.Add(btnIngresar);
             Name = "frmLogin";
             Text = "Ingreso Club Deportivo";
+            Load += frmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)picLogin).EndInit();
             ResumeLayout(false);
             PerformLayout();

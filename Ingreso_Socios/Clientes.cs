@@ -1,5 +1,5 @@
 ﻿using Ingreso_Socios.Datos;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,7 +18,7 @@ namespace Ingreso_Socios
         public Clientes()
         {
             InitializeComponent();
-            
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace Ingreso_Socios
         {
             Form socios = new Socios();
             socios.ShowDialog();
-            this.Close();
+            CargarGrilla();
         }
 
         private void frmCliente_Load(object sender, EventArgs e)
@@ -65,11 +65,10 @@ namespace Ingreso_Socios
                         int renglon = dgvClientes.Rows.Add();
                         dgvClientes.Rows[renglon].Cells[0].Value = reader.GetString(0);
                         dgvClientes.Rows[renglon].Cells[1].Value = reader.GetString(1);
-                        dgvClientes.Rows[renglon].Cells[2].Value = reader.GetString(2);
-                        
-                        string fecha = reader.GetString(3);
+                        dgvClientes.Rows[renglon].Cells[2].Value = reader.GetInt64(2);
+
+                        DateTime fechaNac2 = reader.GetDateTime(3);
                         //string fechaNac = string.Join("/", fecha.Split('-').Reverse());
-                        DateTime fechaNac2 = DateTime.ParseExact(fecha, "d/M/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
                         //DateTime fechaSinHora = fechaNac2.Date;
                         DateTime fechaActual = DateTime.Now;
                         //int edad = fechaActual.Year - fechaNac2.Year;
@@ -78,18 +77,18 @@ namespace Ingreso_Socios
                         double anos = Math.Floor(dias / 365);
                         dgvClientes.Rows[renglon].Cells[3].Value = anos;
 
-                        dgvClientes.Rows[renglon].Cells[4].Value = reader.GetString(4);
-                        
+                        dgvClientes.Rows[renglon].Cells[4].Value = reader.GetBoolean(4);
+
                         //dgvClientes.Rows[renglon].Cells[5].Value = reader.GetString(5);
-                        if(!reader.IsDBNull(5))
+                        if (!reader.IsDBNull(5))
                         {
                             dgvClientes.Rows[renglon].Cells[5].Value = true;
                         }
-                       else
+                        else
                         {
                             dgvClientes.Rows[renglon].Cells[5].Value = false;
-                         }
-                        
+                        }
+
                     }
                 }
                 else
@@ -97,13 +96,13 @@ namespace Ingreso_Socios
                     MessageBox.Show("NO HAY DATOS");
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-              MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
-                if(sqlCon.State == ConnectionState.Open)
+                if (sqlCon.State == ConnectionState.Open)
                 {
                     sqlCon.Close();
                 }

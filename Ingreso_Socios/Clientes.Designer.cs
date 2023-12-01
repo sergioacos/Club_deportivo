@@ -47,13 +47,14 @@
             // 
             dgvClientes.AllowUserToAddRows = false;
             dgvClientes.AllowUserToDeleteRows = false;
+            dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones });
             dgvClientes.Location = new Point(12, 51);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
             dgvClientes.RowTemplate.Height = 25;
-            dgvClientes.Size = new Size(837, 267);
+            dgvClientes.Size = new Size(788, 282);
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -118,7 +119,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(877, 316);
+            ClientSize = new Size(812, 345);
             Controls.Add(btnRegistrar);
             Controls.Add(dgvClientes);
             Name = "Clientes";

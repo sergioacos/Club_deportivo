@@ -12,27 +12,30 @@ namespace Ingreso_Socios
 {
     public partial class Menu : Form
     {
-        public Menu()
+        private string nombreUsuario;
+        public Menu(string nombreUsuario)
         {
             InitializeComponent();
+            this.nombreUsuario = nombreUsuario;
+            lblUsuario.Text = "Usuario: " + nombreUsuario;
         }
 
-        private void Menu_Load(object sender, EventArgs e)
+        private void Menu_FormClosed(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnClientes_Click(object sender, EventArgs e)
         {
             Form clientes = new Clientes();
             clientes.ShowDialog();
-            this.Close();
         }
 
-        private void btn_Click(object sender, EventArgs e)
+        private void btnASocio_Click(object sender, EventArgs e)
         {
             Form socios = new Socios();
             socios.ShowDialog();
+<<<<<<< HEAD
             this.Close();
 
         }
@@ -42,6 +45,19 @@ namespace Ingreso_Socios
             Form actividades = new Actividades();
             actividades.ShowDialog();
             this.Close();
+=======
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            Form pagos = new Pagos();
+            pagos.ShowDialog();
+>>>>>>> 791077236841ee43d7449ea956c075f17aeb06d3
         }
     }
 }

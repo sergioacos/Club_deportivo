@@ -27,13 +27,9 @@ namespace Ingreso_Socios
 
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Ingreso exitoso");
-                Form menu = new Menu();
-                menu.Show();
-                //this.Hide();
-                this.WindowState = FormWindowState.Minimized;
-                //ShowInTaskbar = true;
-
+                string nUsuario = dt.Rows[0][1] != null ? dt.Rows[0][1].ToString() : "N/A";
+                Form menu = new Menu(nUsuario);
+                menu.ShowDialog();
 
             }
             else
@@ -58,9 +54,23 @@ namespace Ingreso_Socios
 
         }
 
-        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        private void txtContrasena_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtContrasena.UseSystemPasswordChar = true;
+            if (e.KeyChar == (char)13)
+            {
+                btnIngresar.PerformClick();
+            }
+
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            //Form menu = new Menu("N/A");
+            //menu.ShowDialog();
+
+            Form carnet =  new Carnet(3);
+            carnet.ShowDialog();
+        }
+
     }
 }
