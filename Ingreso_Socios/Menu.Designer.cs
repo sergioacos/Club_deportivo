@@ -65,6 +65,7 @@
             btnActividades.TabIndex = 2;
             btnActividades.Text = "Gestionar Actividades";
             btnActividades.UseVisualStyleBackColor = true;
+            btnActividades.Click += btnActividades_Click;
             // 
             // btnSalir
             // 
@@ -80,7 +81,7 @@
             lblUsuario.AutoSize = true;
             lblUsuario.Location = new Point(12, 9);
             lblUsuario.Name = "lblUsuario";
-            lblUsuario.Size = new Size(208, 15);
+            lblUsuario.Size = new Size(53, 15);
             lblUsuario.TabIndex = 4;
             lblUsuario.Text = "Usuario: ";
             // 

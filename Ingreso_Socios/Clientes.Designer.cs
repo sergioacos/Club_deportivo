@@ -30,8 +30,6 @@
         {
             components = new System.ComponentModel.Container();
             dgvClientes = new DataGridView();
-            btnRegistrar = new Button();
-            personaBindingSource = new BindingSource(components);
             Apellido = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -39,6 +37,8 @@
             AptoFisico = new DataGridViewCheckBoxColumn();
             Socio = new DataGridViewCheckBoxColumn();
             Acciones = new DataGridViewButtonColumn();
+            btnRegistrar = new Button();
+            personaBindingSource = new BindingSource(components);
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)personaBindingSource).BeginInit();
             SuspendLayout();
@@ -56,20 +56,6 @@
             dgvClientes.Size = new Size(837, 267);
             dgvClientes.TabIndex = 0;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // btnRegistrar
-            // 
-            btnRegistrar.Location = new Point(12, 12);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(141, 23);
-            btnRegistrar.TabIndex = 1;
-            btnRegistrar.Text = "Registrar Cliente";
-            btnRegistrar.UseVisualStyleBackColor = true;
-            btnRegistrar.Click += btnRegistrar_Click;
-            // 
-            // personaBindingSource
-            // 
-            personaBindingSource.DataSource = typeof(Persona);
             // 
             // Apellido
             // 
@@ -113,6 +99,20 @@
             Acciones.HeaderText = "Acciones";
             Acciones.Name = "Acciones";
             Acciones.ReadOnly = true;
+            // 
+            // btnRegistrar
+            // 
+            btnRegistrar.Location = new Point(12, 12);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(141, 23);
+            btnRegistrar.TabIndex = 1;
+            btnRegistrar.Text = "Registrar Cliente";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
+            // 
+            // personaBindingSource
+            // 
+            personaBindingSource.DataSource = typeof(Persona);
             // 
             // Clientes
             // 

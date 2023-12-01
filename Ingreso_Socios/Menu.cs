@@ -34,7 +34,14 @@ namespace Ingreso_Socios
             Form socios = new Socios();
             socios.ShowDialog();
             this.Close();
-            
+
+        }
+
+        private void btnActividades_Click(object sender, EventArgs e)
+        {
+            Form actividades = new Actividades();
+            actividades.ShowDialog();
+            this.Close();
         }
     }
 }
