@@ -14,9 +14,15 @@ namespace Ingreso_Socios
 {
     public partial class PagoSocio : Form
     {
-        public PagoSocio()
+        private int dni;
+        private string nombre;
+        public PagoSocio(string nombre, string apellido, int dni)
         {
             InitializeComponent();
+            this.nombre = apellido + ", " + nombre;
+            this.dni = dni;
+            lblNombre.Text = "Nombre: " + this.nombre;
+            lblDni.Text = "DNI: " + this.dni.ToString();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -36,7 +42,7 @@ namespace Ingreso_Socios
             {
                 string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                query = $"select c.fechaVencimiento, c.monto, c.medioPago, c.fechaEmision from cuota c inner join socio s on c.idSocio = s.idSocio inner join persona p on p.idPersona = s.idPersona where p.dni = {txtDni.Text} order by c.fechaVencimiento";
+                query = $"select c.fechaVencimiento, c.monto, c.medioPago, c.fechaEmision from cuota c inner join socio s on c.idSocio = s.idSocio inner join persona p on p.idPersona = s.idPersona where p.dni = {this.dni.ToString()} order by c.fechaVencimiento";
 
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
@@ -54,11 +60,7 @@ namespace Ingreso_Socios
                         dgvCuotas.Rows[renglon].Cells[0].Value = reader.GetDateTime(0);
                         dgvCuotas.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
                         dgvCuotas.Rows[renglon].Cells[3].Value = reader.GetString(2);
-                        dgvCuotas.Rows[renglon].Cells[4].Value = reader.GetDateTime(3);
-                        
-
-                        
-
+                        dgvCuotas.Rows[renglon].Cells[4].Value = reader.GetDateTime(3).ToShortDateString();
                     }
                 }
                 else
