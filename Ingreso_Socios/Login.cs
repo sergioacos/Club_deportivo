@@ -65,8 +65,8 @@ namespace Ingreso_Socios
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            //Form menu = new Menu("N/A");
-            //menu.ShowDialog();
+            Form menu = new Menu("N/A");
+            menu.ShowDialog();
 
             //Form carnet =  new Carnet(3);
             //carnet.ShowDialog();
