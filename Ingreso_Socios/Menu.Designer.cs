@@ -66,6 +66,7 @@
             btnActividades.TabIndex = 2;
             btnActividades.Text = "Gestionar Actividades";
             btnActividades.UseVisualStyleBackColor = true;
+            btnActividades.Click += btnActividades_Click;
             // 
             // btnSalir
             // 

@@ -19,11 +19,11 @@ namespace Ingreso_Socios.Datos
         public Conexion() // asignamos valores a las variables de la conexion
         {
 // variables usadas para larepetición de líneas de código
-            bool correcto = false;
+          /*  bool correcto = false;
             int mensaje;    /* creamos las variables para recibir los datos desde el teclado
 //
 ============================================================*/
-            string T_servidor = "Servidor" ;
+           /* string T_servidor = "Servidor" ;
             string T_puerto = "Puerto";
             string T_usuario = "Usuario";
             string T_clave = "Clave"; // se antepuso la T para indicar que vienen desde TECLADO
@@ -35,7 +35,7 @@ _
 ciclo
 *
 ___________________________________________________________*/
-        while (correcto != true)
+        /*while (correcto != true)
         {
 // Armamos los cuadros de dialogo para el ingreso de datos
             T_servidor = Microsoft.VisualBasic.Interaction.InputBox
@@ -54,7 +54,7 @@ MySQL sean correctos
 *
 ________________________________________________________
 __________________ */
-             mensaje = (int)MessageBox.Show("su ingreso: SERVIDOR = " +
+           /*  mensaje = (int)MessageBox.Show("su ingreso: SERVIDOR = " +
                 T_servidor + " PUERTO= " + T_puerto + " USUARIO: " +
                                 T_usuario + " CLAVE: " + T_clave,
                 "AVISO DEL SISTEMA", MessageBoxButtons.YesNo,
@@ -71,14 +71,15 @@ __________________ */
                 }
             }
 
-            // reemplazamos los datos concretos que teniamos por las variables
 
+            // reemplazamos los datos concretos que teniamos por las variables
+           */
 
             this.baseDatos = "proyecto";
-            this.servidor = T_servidor;
-            this.puerto = T_puerto;
-            this.usuario = T_usuario;
-            this.clave = T_clave;
+            this.servidor = "localhost"; //T_servidor;
+            this.puerto = "3307"; //T_puerto;
+            this.usuario = "root";//T_usuario;
+            this.clave = "1234";//T_clave;
         }
         // proceso de interacción
         public MySqlConnection CrearConexion()

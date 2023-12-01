@@ -47,18 +47,18 @@
             lblNomSocio.AutoSize = true;
             lblNomSocio.Location = new Point(71, 27);
             lblNomSocio.Name = "lblNomSocio";
-            lblNomSocio.Size = new Size(110, 15);
+            lblNomSocio.Size = new Size(126, 15);
             lblNomSocio.TabIndex = 1;
-            lblNomSocio.Text = "Nombre del Cliente";
+            lblNomSocio.Text = "Nombre del Cliente (*)";
             // 
             // lblApSocio
             // 
             lblApSocio.AutoSize = true;
             lblApSocio.Location = new Point(71, 98);
             lblApSocio.Name = "lblApSocio";
-            lblApSocio.Size = new Size(110, 15);
+            lblApSocio.Size = new Size(123, 15);
             lblApSocio.TabIndex = 2;
-            lblApSocio.Text = "Apellido del Cliente";
+            lblApSocio.Text = "Apellido del Cliente(*)";
             // 
             // txtApellido
             // 
@@ -80,9 +80,9 @@
             lblDNI.AutoSize = true;
             lblDNI.Location = new Point(71, 176);
             lblDNI.Name = "lblDNI";
-            lblDNI.Size = new Size(44, 15);
+            lblDNI.Size = new Size(57, 15);
             lblDNI.TabIndex = 5;
-            lblDNI.Text = "DNI N°";
+            lblDNI.Text = "DNI N°(*)";
             // 
             // txtDni
             // 
@@ -169,7 +169,7 @@
             Controls.Add(lblApSocio);
             Controls.Add(lblNomSocio);
             Name = "Socios";
-            Text = "Ingreso Socios";
+            Text = "Ingreso Clientes";
             Load += Socios_Load;
             ResumeLayout(false);
             PerformLayout();

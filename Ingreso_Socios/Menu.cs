@@ -29,12 +29,20 @@ namespace Ingreso_Socios
         {
             Form clientes = new Clientes();
             clientes.ShowDialog();
+            
+            
         }
 
         private void btnASocio_Click(object sender, EventArgs e)
         {
             Form socios = new Socios();
             socios.ShowDialog();
+        }
+
+        private void btnActividades_Click(object sender, EventArgs e)
+        {
+            Form actividades = new Actividades();
+            actividades.ShowDialog();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

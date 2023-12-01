@@ -67,6 +67,9 @@ namespace Ingreso_Socios
         {
             Form menu = new Menu("N/A");
             menu.ShowDialog();
+
+            //Form carnet =  new Carnet(3);
+            //carnet.ShowDialog();
         }
 
     }

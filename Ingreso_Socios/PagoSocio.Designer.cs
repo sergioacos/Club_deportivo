@@ -1,6 +1,6 @@
 ﻿namespace Ingreso_Socios
 {
-    partial class Pagos
+    partial class PagoSocio
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             dgvCuotas = new DataGridView();
-            cliente = new DataGridViewTextBoxColumn();
             fechaVencimiento = new DataGridViewTextBoxColumn();
             monto = new DataGridViewTextBoxColumn();
             pagado = new DataGridViewCheckBoxColumn();
             medioPago = new DataGridViewTextBoxColumn();
             fechaEmision = new DataGridViewTextBoxColumn();
             acciones = new DataGridViewButtonColumn();
-            label2 = new Label();
-            txtBusqueda = new TextBox();
-            btnCancelar = new Button();
-            btnAgregar = new Button();
+            lblNombre = new Label();
+            txtNombre = new TextBox();
+            lblApellido = new Label();
+            txtApellido = new TextBox();
+            lablDni = new Label();
+            txtDni = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
             // 
@@ -49,21 +50,13 @@
             dgvCuotas.AllowUserToDeleteRows = false;
             dgvCuotas.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCuotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { cliente, fechaVencimiento, monto, pagado, medioPago, fechaEmision, acciones });
-            dgvCuotas.Location = new Point(10, 70);
+            dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { fechaVencimiento, monto, pagado, medioPago, fechaEmision, acciones });
+            dgvCuotas.Location = new Point(12, 102);
             dgvCuotas.Name = "dgvCuotas";
             dgvCuotas.ReadOnly = true;
             dgvCuotas.RowTemplate.Height = 25;
-            dgvCuotas.Size = new Size(794, 250);
-            dgvCuotas.TabIndex = 0;
-            dgvCuotas.CellClick += dgvCuotas_CellClick;
-            dgvCuotas.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // cliente
-            // 
-            cliente.HeaderText = "Cliente";
-            cliente.Name = "cliente";
-            cliente.ReadOnly = true;
+            dgvCuotas.Size = new Size(785, 275);
+            dgvCuotas.TabIndex = 1;
             // 
             // fechaVencimiento
             // 
@@ -103,61 +96,71 @@
             acciones.ReadOnly = true;
             acciones.Text = "Pagar";
             acciones.Width = 61;
-            acciones.UseColumnTextForButtonValue = true;
             // 
-            // label2
+            // lblNombre
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(45, 15);
-            label2.TabIndex = 3;
-            label2.Text = "Buscar:";
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(12, 42);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 2;
+            lblNombre.Text = "Nombre";
+            lblNombre.Click += label1_Click;
             // 
-            // txtBusqueda
+            // txtNombre
             // 
-            txtBusqueda.Location = new Point(63, 25);
-            txtBusqueda.Name = "txtBusqueda";
-            txtBusqueda.Size = new Size(234, 23);
-            txtBusqueda.TabIndex = 4;
-            txtBusqueda.TextChanged += txtBusqueda_TextChanged;
+            txtNombre.Location = new Point(69, 39);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(130, 23);
+            txtNombre.TabIndex = 3;
             // 
-            // btnCancelar
+            // lblApellido
             // 
-            btnCancelar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnCancelar.Location = new Point(690, 18);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(114, 35);
-            btnCancelar.TabIndex = 6;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            lblApellido.AutoSize = true;
+            lblApellido.Location = new Point(215, 42);
+            lblApellido.Name = "lblApellido";
+            lblApellido.Size = new Size(51, 15);
+            lblApellido.TabIndex = 4;
+            lblApellido.Text = "Apellido";
             // 
-            // btnAgregar
+            // txtApellido
             // 
-            btnAgregar.Anchor = AnchorStyles.Right;
-            btnAgregar.Location = new Point(570, 18);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.RightToLeft = RightToLeft.No;
-            btnAgregar.Size = new Size(114, 35);
-            btnAgregar.TabIndex = 7;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            txtApellido.Location = new Point(281, 39);
+            txtApellido.Name = "txtApellido";
+            txtApellido.Size = new Size(153, 23);
+            txtApellido.TabIndex = 5;
             // 
-            // Pagos
+            // lablDni
+            // 
+            lablDni.AutoSize = true;
+            lablDni.Location = new Point(470, 42);
+            lablDni.Name = "lablDni";
+            lablDni.Size = new Size(27, 15);
+            lablDni.TabIndex = 6;
+            lablDni.Text = "DNI";
+            // 
+            // txtDni
+            // 
+            txtDni.Location = new Point(517, 39);
+            txtDni.Name = "txtDni";
+            txtDni.Size = new Size(153, 23);
+            txtDni.TabIndex = 7;
+            // 
+            // PagoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(816, 332);
-            Controls.Add(btnAgregar);
-            Controls.Add(btnCancelar);
-            Controls.Add(txtBusqueda);
-            Controls.Add(label2);
+            ClientSize = new Size(800, 450);
+            Controls.Add(txtDni);
+            Controls.Add(lablDni);
+            Controls.Add(txtApellido);
+            Controls.Add(lblApellido);
+            Controls.Add(txtNombre);
+            Controls.Add(lblNombre);
             Controls.Add(dgvCuotas);
-            Name = "Pagos";
-            Text = "Pagos";
-            Load += Pagos_Load;
+            Name = "PagoSocio";
+            Text = "PagoSocio";
+            Load += frmPagos_Load;
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -166,16 +169,17 @@
         #endregion
 
         private DataGridView dgvCuotas;
-        private Label label2;
-        private TextBox txtBusqueda;
-        private Button btnCancelar;
-        private Button btnAgregar;
-        private DataGridViewTextBoxColumn cliente;
         private DataGridViewTextBoxColumn fechaVencimiento;
         private DataGridViewTextBoxColumn monto;
         private DataGridViewCheckBoxColumn pagado;
         private DataGridViewTextBoxColumn medioPago;
         private DataGridViewTextBoxColumn fechaEmision;
         private DataGridViewButtonColumn acciones;
+        private Label lblNombre;
+        private Label lblApellido;
+        private Label lablDni;
+        public TextBox txtNombre;
+        public TextBox txtApellido;
+        public TextBox txtDni;
     }
 }

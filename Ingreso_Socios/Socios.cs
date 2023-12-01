@@ -16,9 +16,10 @@ namespace Ingreso_Socios
             }
             else
             {
-                Datos.Conexion conexion1 = new Datos.Conexion();
-                conexion1.CrearConexion();
-                if(chkSocio.Checked) { 
+                //Datos.Conexion conexion1 = new Datos.Conexion();
+                //conexion1.CrearConexion();
+                if (chkSocio.Checked)
+                {
                     String respuesta;
                     Socio socio = new Socio();
                     socio.Nombre = txtNombre.Text;
@@ -55,7 +56,7 @@ namespace Ingreso_Socios
                     nosocio.Dni = Convert.ToInt32(txtDni.Text);
                     nosocio.FechaNac = Convert.ToDateTime(dateTimePickerFechaN.Text);
                     nosocio.AptoFisico = chkAptoFisico.Checked;
-                    
+
                     respuesta = Datos.NoSocios.NuevoNoSocio(nosocio);
                     bool esnumero = int.TryParse(respuesta, out int codigo);
                     if (esnumero)
@@ -69,7 +70,7 @@ namespace Ingreso_Socios
                             MessageBox.Show("Se almaceno con exito el cliente Nro " + respuesta, "AVISO DEL SISTEMA",
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                            
+
                             Form actividad = new Actividades();
                             actividad.ShowDialog();
                         }
