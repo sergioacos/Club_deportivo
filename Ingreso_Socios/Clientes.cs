@@ -42,10 +42,11 @@ namespace Ingreso_Socios
         {
             CargarGrilla();
         }
-
+       
         public void CargarGrilla()
         {
             MySqlConnection sqlCon = new MySqlConnection();
+           
             try
             {
                 string query;
@@ -82,11 +83,13 @@ namespace Ingreso_Socios
                         //dgvClientes.Rows[renglon].Cells[5].Value = reader.GetString(5);
                         if (!reader.IsDBNull(5))
                         {
-                            dgvClientes.Rows[renglon].Cells[5].Value = true;
+                          dgvClientes.Rows[renglon].Cells[5].Value = true;
+                            //socio = true;
                         }
                         else
                         {
                             dgvClientes.Rows[renglon].Cells[5].Value = false;
+                           // socio = false;
                         }
 
                     }
@@ -113,10 +116,20 @@ namespace Ingreso_Socios
         {
             Int64 dni;
             if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
-            {
+            { bool socio =(bool) dgvClientes.Rows[e.RowIndex].Cells[5].Value;
+                if (socio)
+                {
+                    Form detalle = new Pagar();
+                    detalle.ShowDialog();
+                }
+            else {
+                    Form detalle = new Actividades();
+                    detalle.ShowDialog();
+                }
+                
                 //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
-                dni = (Int64)dgvClientes.CurrentRow.Cells[2].Value;
-                MessageBox.Show("Listo " + dni);
+              //  dni = (Int64)dgvClientes.CurrentRow.Cells[2].Value;
+                //MessageBox.Show("Listo " + dni);
 
             }
         }
