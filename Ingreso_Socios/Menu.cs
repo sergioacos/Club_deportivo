@@ -29,6 +29,8 @@ namespace Ingreso_Socios
         {
             Form clientes = new Clientes();
             clientes.ShowDialog();
+            
+            
         }
 
         private void btnASocio_Click(object sender, EventArgs e)

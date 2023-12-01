@@ -118,8 +118,20 @@ namespace Ingreso_Socios
             if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
             {
                 //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
+                string apellido = dgvClientes.CurrentRow.Cells[0].Value.ToString();
+                string nombre = dgvClientes.CurrentRow.Cells[1].Value.ToString();
                 dni = (int)dgvClientes.CurrentRow.Cells[2].Value;
-                MessageBox.Show("Listo" + dni);
+                //MessageBox.Show("Listo" + dni);
+                Pagar pagar = new Pagar();
+                pagar.txtApellido.Text = apellido;
+                pagar.txtNombre.Text = nombre;
+                pagar.txtDni.Text = dni.ToString();
+
+                pagar.ShowDialog();
+                this.Close();
+            
+
+
 
             }
         }
