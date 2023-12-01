@@ -52,9 +52,7 @@ namespace Ingreso_Socios
                     {
                         int renglon = dgvActividades.Rows.Add();
                         dgvActividades.Rows[renglon].Cells[0].Value = reader.GetString(0);
-                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetString(1);
-
-
+                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
                     }
                 }
                 else
