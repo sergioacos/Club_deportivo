@@ -52,7 +52,9 @@ namespace Ingreso_Socios
                     {
                         int renglon = dgvActividades.Rows.Add();
                         dgvActividades.Rows[renglon].Cells[0].Value = reader.GetString(0);
-                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
+                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetString(1);
+
+
                     }
                 }
                 else
@@ -88,19 +90,20 @@ namespace Ingreso_Socios
                 //MessageBox.Show("Listo");
 
             }
-            MessageBox.Show("Las actividades a las que se inscribo son: ");
+            string act = "";
+           
             for (int i = 0; i < actividades.Count; i++)
             {
-                MessageBox.Show(actividades[i]);
+                act= act+ actividades[i].ToString()+", ";
             }
-
+            MessageBox.Show("Las actividades a las que se inscribo son: " + act);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form menu = new Menu("TEST");
-            menu.Show();
-            this.Close();
+            menu.ShowDialog();
+            //this.Close();
 
 
         }
