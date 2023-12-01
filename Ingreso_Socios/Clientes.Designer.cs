@@ -56,6 +56,7 @@
             dgvClientes.RowTemplate.Height = 25;
             dgvClientes.Size = new Size(788, 282);
             dgvClientes.TabIndex = 0;
+            dgvClientes.CellClick += dgvClientes_CellClick;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Apellido
@@ -100,6 +101,8 @@
             Acciones.HeaderText = "Acciones";
             Acciones.Name = "Acciones";
             Acciones.ReadOnly = true;
+            Acciones.Text = "Ver pagos";
+            Acciones.UseColumnTextForButtonValue = true;
             // 
             // btnRegistrar
             // 

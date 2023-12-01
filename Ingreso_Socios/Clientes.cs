@@ -62,10 +62,13 @@ namespace Ingreso_Socios
                 {
                     while (reader.Read())
                     {
+                        //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
+                        //btnclm.Name = "Ver pagos";
                         int renglon = dgvClientes.Rows.Add();
                         dgvClientes.Rows[renglon].Cells[0].Value = reader.GetString(0);
                         dgvClientes.Rows[renglon].Cells[1].Value = reader.GetString(1);
-                        dgvClientes.Rows[renglon].Cells[2].Value = reader.GetInt64(2);
+                        dgvClientes.Rows[renglon].Cells[2].Value = reader.GetInt32(2);
+                        //dgvClientes.Rows[renglon].Cells[6].Value = btnclm;
 
                         DateTime fechaNac2 = reader.GetDateTime(3);
                         //string fechaNac = string.Join("/", fecha.Split('-').Reverse());
@@ -106,6 +109,18 @@ namespace Ingreso_Socios
                 {
                     sqlCon.Close();
                 }
+            }
+        }
+
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int dni;
+            if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
+            {
+                //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
+                dni = (int)dgvClientes.CurrentRow.Cells[2].Value;
+                MessageBox.Show("Listo" + dni);
+
             }
         }
     }
