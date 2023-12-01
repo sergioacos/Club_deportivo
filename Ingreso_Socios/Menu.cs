@@ -35,6 +35,17 @@ namespace Ingreso_Socios
         {
             Form socios = new Socios();
             socios.ShowDialog();
+<<<<<<< HEAD
+            this.Close();
+
+        }
+
+        private void btnActividades_Click(object sender, EventArgs e)
+        {
+            Form actividades = new Actividades();
+            actividades.ShowDialog();
+            this.Close();
+=======
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -46,6 +57,7 @@ namespace Ingreso_Socios
         {
             Form pagos = new Pagos();
             pagos.ShowDialog();
+>>>>>>> 791077236841ee43d7449ea956c075f17aeb06d3
         }
     }
 }
