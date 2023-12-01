@@ -107,6 +107,18 @@ namespace Ingreso_Socios
                     sqlCon.Close();
                 }
             }
+
+        }
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int dni;
+            if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
+            {
+                //dgvClientes.Rows.Remove(dgvClientes.CurrentRow);
+                dni = (int)dgvClientes.CurrentRow.Cells[2].Value;
+                MessageBox.Show("Listo" + dni);
+
+            }
         }
     }
 }
