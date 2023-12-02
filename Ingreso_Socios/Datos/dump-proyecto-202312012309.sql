@@ -51,12 +51,13 @@ CREATE TABLE `actividadnosocio` (
   `idActividad` int(11) NOT NULL,
   `idNoSocio` int(11) NOT NULL,
   `idActividadNoSocio` int(11) NOT NULL AUTO_INCREMENT,
+  `fechaEmision` datetime DEFAULT NULL,
   PRIMARY KEY (`idActividadNoSocio`),
   KEY `actividadNoSocio_FK` (`idNoSocio`),
   KEY `actividadNoSocio_FK_1` (`idActividad`),
   CONSTRAINT `actividadNoSocio_FK` FOREIGN KEY (`idNoSocio`) REFERENCES `nosocio` (`idNoSocio`),
   CONSTRAINT `actividadNoSocio_FK_1` FOREIGN KEY (`idActividad`) REFERENCES `actividad` (`idActividad`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +66,7 @@ CREATE TABLE `actividadnosocio` (
 
 LOCK TABLES `actividadnosocio` WRITE;
 /*!40000 ALTER TABLE `actividadnosocio` DISABLE KEYS */;
+INSERT INTO `actividadnosocio` VALUES (1,1,1,'2023-12-01 19:46:49'),(6,1,2,'2023-12-01 21:01:21'),(3,1,3,'2023-12-01 21:01:22'),(1,1,4,'2023-12-01 21:01:44'),(1,1,5,'2023-12-01 21:02:22'),(3,1,6,'2023-12-01 21:02:32');
 /*!40000 ALTER TABLE `actividadnosocio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -87,7 +89,7 @@ CREATE TABLE `cuota` (
   PRIMARY KEY (`idCuota`),
   KEY `cuota_FK` (`idSocio`),
   CONSTRAINT `cuota_FK` FOREIGN KEY (`idSocio`) REFERENCES `socio` (`idSocio`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -96,7 +98,7 @@ CREATE TABLE `cuota` (
 
 LOCK TABLES `cuota` WRITE;
 /*!40000 ALTER TABLE `cuota` DISABLE KEYS */;
-INSERT INTO `cuota` VALUES (1,3,20250.2,'2023-11-28','Noviembre','Tarjeta','2023-10-28',NULL),(2,3,20000,'2023-12-22','Diciembre 2023','','2023-11-29',NULL),(3,10,15000,'2023-12-07','Diciembre 2023','','2023-11-29',NULL),(4,10,10000,'2023-12-07','Diciembre 2023','','2023-11-29',NULL),(5,3,123121,'2023-11-30','Noviembre 2023','','2023-11-29',NULL),(6,3,10000,'2023-11-28','TEST','','2023-11-29',NULL),(7,3,3123120,'2023-11-30','Noviembre 2023','','2023-11-29',NULL),(8,3,123123,'2023-11-29','Noviembre 2023','','2023-11-29',NULL);
+INSERT INTO `cuota` VALUES (1,3,20250.2,'2023-11-28','Noviembre','Tarjeta','2023-10-28','2023-12-01 21:36:43'),(2,3,20000,'2023-12-22','Diciembre 2023','','2023-11-29',NULL),(3,10,15000,'2023-12-07','Diciembre 2023','Efectivo','2023-11-29','2023-12-01 22:23:48'),(4,10,10000,'2023-12-07','Diciembre 2023','Tarjeta','2023-11-29','2023-12-01 22:24:39'),(5,3,123121,'2023-11-30','Noviembre 2023','','2023-11-29',NULL),(6,3,10000,'2023-11-28','TEST','','2023-11-29',NULL),(7,3,3123120,'2023-11-30','Noviembre 2023','','2023-11-29',NULL),(8,3,123123,'2023-11-29','Noviembre 2023','','2023-11-29',NULL),(9,10,4999,'2023-12-22','Diciembre 2023','','2023-12-01',NULL);
 /*!40000 ALTER TABLE `cuota` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +115,7 @@ CREATE TABLE `nosocio` (
   PRIMARY KEY (`idNoSocio`),
   KEY `noSocio_FK` (`idPersona`),
   CONSTRAINT `noSocio_FK` FOREIGN KEY (`idPersona`) REFERENCES `persona` (`idPersona`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +124,7 @@ CREATE TABLE `nosocio` (
 
 LOCK TABLES `nosocio` WRITE;
 /*!40000 ALTER TABLE `nosocio` DISABLE KEYS */;
+INSERT INTO `nosocio` VALUES (1,35);
 /*!40000 ALTER TABLE `nosocio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,7 +143,7 @@ CREATE TABLE `persona` (
   `dni` bigint(20) NOT NULL,
   `aptoFisico` tinyint(1) NOT NULL,
   PRIMARY KEY (`idPersona`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -149,7 +152,7 @@ CREATE TABLE `persona` (
 
 LOCK TABLES `persona` WRITE;
 /*!40000 ALTER TABLE `persona` DISABLE KEYS */;
-INSERT INTO `persona` VALUES (1,'sergio','acosta','1984-10-27',31309515,1),(2,'juan','Perez','2023-12-01',25,1),(3,'diego','Perez','2023-12-01',85,1),(4,'diego','Perez','2023-12-01',85,1),(5,'diego','Perez','2023-12-01',85,1),(6,'diego','Perez','2023-12-01',2325,1),(7,'diego','Perez','2023-12-01',2325,1),(8,'diego','Perez','2023-12-01',2325,1),(9,'jose','rodriguez','2023-12-01',30,1),(10,'jose','rodriguez','2023-12-01',30,1),(11,'jose','rodriguez','2023-12-01',30,1),(12,'jose','rodriguez','2023-12-01',30,1),(13,'jose','rodriguez','2023-12-01',29,1),(14,'jose','rodriguez','2023-12-01',29,1),(15,'jose','rodriguez','2023-12-01',29,1),(16,'jose','rodriguez','2023-12-01',29,1),(17,'jose','rodriguez','2023-12-01',29,1),(18,'jose','rodriguez','2023-12-01',29,1),(19,'jose','rodriguez','2023-12-01',78,1),(20,'jose','rodriguez','2023-12-01',8,1),(21,'tom','jerry','2023-10-30',4998,1),(22,'martin','diaz','2023-10-30',764982,0),(23,'jose','rodriguez','2023-12-01',1984,1),(24,'ian','toloza','1993-10-26',1567,1),(25,'jon','rod','2023-12-01',145,1),(26,'loss','coll','1899-10-25',24269,1),(27,'andres ','baez','1996-02-14',40296488,1),(28,'orlando','gimenez','2023-10-31',164978,0),(29,'alberto','fernandez','2023-10-31',123456,1),(30,'ricardo','caruzo','1989-05-07',234689,1),(31,'andres','cpit','1990-01-31',2698457,1),(32,'Ignacio','Fiora','1986-01-22',32151035,0),(33,'asdasd','asdasdas','2023-11-01',321510351,0),(34,'sfdsfsd','sdasdasd','2023-11-28',123123123,0);
+INSERT INTO `persona` VALUES (20,'jose','rodriguez','2023-12-01',8,1),(25,'jon','rod','2023-12-01',145,1),(26,'loss','coll','1899-10-25',24269,1),(27,'andres ','baez','1996-02-14',40296488,1),(28,'orlando','gimenez','2023-10-31',164978,0),(29,'alberto','fernandez','2023-10-31',123456,1),(30,'ricardo','caruzo','1989-05-07',234689,1),(31,'andres','cpit','1990-01-31',2698457,1),(32,'Ignacio','Fiora','1986-01-22',32151035,0),(33,'asdasd','asdasdas','2023-11-01',321510351,0),(34,'sfdsfsd','sdasdasd','2023-11-28',123123123,0),(35,'Ignacioasd','IROASD','1994-06-15',123123,1);
 /*!40000 ALTER TABLE `persona` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -409,6 +412,52 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ObtenerIdPorDni` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerIdPorDni`(in dni int)
+begin
+	select idNoSocio
+	from nosocio ns 
+	inner join persona p on ns.idPersona = p.idPersona
+	where p.dni = dni;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `ObtenerPagosNoSocios` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ObtenerPagosNoSocios`(in dni int)
+begin
+	select a.nombre as actividad, a.costo, ans.fechaEmision
+	from actividadnosocio ans
+	inner join nosocio ns on ns.idNoSocio = ans.idNoSocio
+	inner join actividad a on a.idActividad = ans.idActividad
+	inner join persona p on ns.idPersona = p.idPersona
+	where p.dni = dni;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `ObtenerSocioPorId` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -453,6 +502,50 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `PagarActividad` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PagarActividad`(in idNoSocio int, in idActividad int)
+begin
+	insert into actividadnosocio (idNosocio, idActividad, fechaEmision)
+	values(idNoSocio, idActividad, now());
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `PagarCuota` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_unicode_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'IGNORE_SPACE,STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `PagarCuota`(in idCuota int, in medioPago varchar(100))
+begin
+	update cuota c
+	set 
+	c.fechaPago = now(),
+	c.medioPago = medioPago
+	where 
+	c.idCuota = idCuota;	
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -463,4 +556,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-12-01 18:07:20
+-- Dump completed on 2023-12-01 23:09:11
