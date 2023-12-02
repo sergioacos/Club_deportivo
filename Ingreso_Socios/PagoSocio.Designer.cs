@@ -37,6 +37,7 @@
             acciones = new DataGridViewButtonColumn();
             lblNombre = new Label();
             lblDni = new Label();
+            btnAgregar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             dgvCuotas.RowTemplate.Height = 25;
             dgvCuotas.Size = new Size(764, 262);
             dgvCuotas.TabIndex = 1;
+            dgvCuotas.CellContentClick += dgvCuotas_CellContentClick;
             // 
             // fechaVencimiento
             // 
@@ -91,6 +93,7 @@
             acciones.Name = "acciones";
             acciones.ReadOnly = true;
             acciones.Text = "Pagar";
+            acciones.UseColumnTextForButtonValue = true;
             acciones.Width = 61;
             // 
             // lblNombre
@@ -112,11 +115,22 @@
             lblDni.TabIndex = 6;
             lblDni.Text = "DNI";
             // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(583, 16);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(193, 23);
+            btnAgregar.TabIndex = 7;
+            btnAgregar.Text = "Agregar Cuota";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
+            // 
             // PagoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(788, 335);
+            Controls.Add(btnAgregar);
             Controls.Add(lblDni);
             Controls.Add(lblNombre);
             Controls.Add(dgvCuotas);
@@ -131,13 +145,14 @@
         #endregion
 
         private DataGridView dgvCuotas;
+        private Label lblNombre;
+        private Label lblDni;
         private DataGridViewTextBoxColumn fechaVencimiento;
         private DataGridViewTextBoxColumn monto;
         private DataGridViewCheckBoxColumn pagado;
         private DataGridViewTextBoxColumn medioPago;
         private DataGridViewTextBoxColumn fechaEmision;
         private DataGridViewButtonColumn acciones;
-        private Label lblNombre;
-        private Label lblDni;
+        private Button btnAgregar;
     }
 }

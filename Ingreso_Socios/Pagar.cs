@@ -14,6 +14,7 @@ namespace Ingreso_Socios
 {
     public partial class Pagar : Form
     {
+        
         public Factura doc = new Factura();
         public Pagar()
         {
