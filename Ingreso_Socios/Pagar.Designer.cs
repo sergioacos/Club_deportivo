@@ -32,8 +32,8 @@
             btnCancelar = new Button();
             btnPagar = new Button();
             grbFormaPago = new GroupBox();
-            chkTarjeta = new CheckBox();
-            chkEfectivo = new CheckBox();
+            rdbEfectivo = new RadioButton();
+            rdbTarjeta = new RadioButton();
             txtMonto = new TextBox();
             label2 = new Label();
             label3 = new Label();
@@ -46,7 +46,7 @@
             // btnComprobante
             // 
             btnComprobante.Enabled = false;
-            btnComprobante.Location = new Point(350, 231);
+            btnComprobante.Location = new Point(322, 268);
             btnComprobante.Name = "btnComprobante";
             btnComprobante.Size = new Size(149, 44);
             btnComprobante.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(181, 231);
+            btnCancelar.Location = new Point(167, 268);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(149, 44);
             btnCancelar.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             // btnPagar
             // 
-            btnPagar.Location = new Point(12, 231);
+            btnPagar.Location = new Point(12, 268);
             btnPagar.Name = "btnPagar";
             btnPagar.Size = new Size(149, 44);
             btnPagar.TabIndex = 3;
@@ -75,39 +75,42 @@
             // 
             // grbFormaPago
             // 
-            grbFormaPago.Controls.Add(chkTarjeta);
-            grbFormaPago.Controls.Add(chkEfectivo);
-            grbFormaPago.Location = new Point(350, 59);
+            grbFormaPago.Controls.Add(rdbEfectivo);
+            grbFormaPago.Controls.Add(rdbTarjeta);
+            grbFormaPago.Location = new Point(350, 77);
             grbFormaPago.Name = "grbFormaPago";
-            grbFormaPago.Size = new Size(169, 140);
+            grbFormaPago.Size = new Size(169, 74);
             grbFormaPago.TabIndex = 4;
             grbFormaPago.TabStop = false;
             grbFormaPago.Text = "Formas de Pago";
             // 
-            // chkTarjeta
+            // rdbEfectivo
             // 
-            chkTarjeta.AutoSize = true;
-            chkTarjeta.Location = new Point(29, 77);
-            chkTarjeta.Name = "chkTarjeta";
-            chkTarjeta.Size = new Size(60, 19);
-            chkTarjeta.TabIndex = 1;
-            chkTarjeta.Text = "Tarjeta";
-            chkTarjeta.UseVisualStyleBackColor = true;
+            rdbEfectivo.AutoSize = true;
+            rdbEfectivo.Location = new Point(6, 47);
+            rdbEfectivo.Name = "rdbEfectivo";
+            rdbEfectivo.Size = new Size(67, 19);
+            rdbEfectivo.TabIndex = 3;
+            rdbEfectivo.Text = "Efectivo";
+            rdbEfectivo.UseVisualStyleBackColor = true;
             // 
-            // chkEfectivo
+            // rdbTarjeta
             // 
-            chkEfectivo.AutoSize = true;
-            chkEfectivo.Location = new Point(29, 37);
-            chkEfectivo.Name = "chkEfectivo";
-            chkEfectivo.Size = new Size(68, 19);
-            chkEfectivo.TabIndex = 0;
-            chkEfectivo.Text = "Efectivo";
-            chkEfectivo.UseVisualStyleBackColor = true;
+            rdbTarjeta.AutoSize = true;
+            rdbTarjeta.Checked = true;
+            rdbTarjeta.Location = new Point(6, 22);
+            rdbTarjeta.Name = "rdbTarjeta";
+            rdbTarjeta.Size = new Size(59, 19);
+            rdbTarjeta.TabIndex = 2;
+            rdbTarjeta.TabStop = true;
+            rdbTarjeta.Text = "Tarjeta";
+            rdbTarjeta.UseVisualStyleBackColor = true;
             // 
             // txtMonto
             // 
             txtMonto.Location = new Point(72, 136);
             txtMonto.Name = "txtMonto";
+            txtMonto.ReadOnly = true;
             txtMonto.Size = new Size(100, 23);
             txtMonto.TabIndex = 8;
             // 
@@ -133,6 +136,7 @@
             // 
             txtPeriodo.Location = new Point(72, 77);
             txtPeriodo.Name = "txtPeriodo";
+            txtPeriodo.ReadOnly = true;
             txtPeriodo.Size = new Size(100, 23);
             txtPeriodo.TabIndex = 13;
             // 
@@ -149,6 +153,7 @@
             // 
             txtVencimiento.Location = new Point(163, 31);
             txtVencimiento.Name = "txtVencimiento";
+            txtVencimiento.ReadOnly = true;
             txtVencimiento.Size = new Size(356, 23);
             txtVencimiento.TabIndex = 15;
             // 
@@ -180,8 +185,6 @@
         private Button btnCancelar;
         private Button btnPagar;
         private GroupBox grbFormaPago;
-        private CheckBox chkTarjeta;
-        private CheckBox chkEfectivo;
         private Label label2;
         private Label label3;
         private TextBox textBox2;
@@ -189,5 +192,7 @@
         public TextBox txtVencimiento;
         public TextBox txtMonto;
         public TextBox txtPeriodo;
+        private RadioButton rdbEfectivo;
+        private RadioButton rdbTarjeta;
     }
 }

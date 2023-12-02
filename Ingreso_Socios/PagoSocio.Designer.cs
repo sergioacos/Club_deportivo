@@ -29,15 +29,17 @@
         private void InitializeComponent()
         {
             dgvCuotas = new DataGridView();
+            lblNombre = new Label();
+            lblDni = new Label();
+            btnAgregar = new Button();
             fechaVencimiento = new DataGridViewTextBoxColumn();
             monto = new DataGridViewTextBoxColumn();
             pagado = new DataGridViewCheckBoxColumn();
             medioPago = new DataGridViewTextBoxColumn();
             fechaEmision = new DataGridViewTextBoxColumn();
+            fechaPago = new DataGridViewTextBoxColumn();
             acciones = new DataGridViewButtonColumn();
-            lblNombre = new Label();
-            lblDni = new Label();
-            btnAgregar = new Button();
+            idCuota = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             dgvCuotas.AllowUserToDeleteRows = false;
             dgvCuotas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvCuotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { fechaVencimiento, monto, pagado, medioPago, fechaEmision, acciones });
+            dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { fechaVencimiento, monto, pagado, medioPago, fechaEmision, fechaPago, acciones, idCuota });
             dgvCuotas.Location = new Point(12, 61);
             dgvCuotas.Name = "dgvCuotas";
             dgvCuotas.ReadOnly = true;
@@ -55,6 +57,35 @@
             dgvCuotas.Size = new Size(764, 262);
             dgvCuotas.TabIndex = 1;
             dgvCuotas.CellContentClick += dgvCuotas_CellContentClick;
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(12, 9);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(51, 15);
+            lblNombre.TabIndex = 2;
+            lblNombre.Text = "Nombre";
+            lblNombre.Click += label1_Click;
+            // 
+            // lblDni
+            // 
+            lblDni.AutoSize = true;
+            lblDni.Location = new Point(12, 24);
+            lblDni.Name = "lblDni";
+            lblDni.Size = new Size(27, 15);
+            lblDni.TabIndex = 6;
+            lblDni.Text = "DNI";
+            // 
+            // btnAgregar
+            // 
+            btnAgregar.Location = new Point(583, 16);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(193, 23);
+            btnAgregar.TabIndex = 7;
+            btnAgregar.Text = "Agregar Cuota";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // fechaVencimiento
             // 
@@ -86,6 +117,12 @@
             fechaEmision.Name = "fechaEmision";
             fechaEmision.ReadOnly = true;
             // 
+            // fechaPago
+            // 
+            fechaPago.HeaderText = "Fecha de Pago";
+            fechaPago.Name = "fechaPago";
+            fechaPago.ReadOnly = true;
+            // 
             // acciones
             // 
             acciones.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
@@ -96,34 +133,12 @@
             acciones.UseColumnTextForButtonValue = true;
             acciones.Width = 61;
             // 
-            // lblNombre
+            // idCuota
             // 
-            lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(12, 9);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(51, 15);
-            lblNombre.TabIndex = 2;
-            lblNombre.Text = "Nombre";
-            lblNombre.Click += label1_Click;
-            // 
-            // lblDni
-            // 
-            lblDni.AutoSize = true;
-            lblDni.Location = new Point(12, 24);
-            lblDni.Name = "lblDni";
-            lblDni.Size = new Size(27, 15);
-            lblDni.TabIndex = 6;
-            lblDni.Text = "DNI";
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(583, 16);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(193, 23);
-            btnAgregar.TabIndex = 7;
-            btnAgregar.Text = "Agregar Cuota";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            idCuota.HeaderText = "Id Cuota";
+            idCuota.Name = "idCuota";
+            idCuota.ReadOnly = true;
+            idCuota.Visible = false;
             // 
             // PagoSocio
             // 
@@ -147,12 +162,14 @@
         private DataGridView dgvCuotas;
         private Label lblNombre;
         private Label lblDni;
+        private Button btnAgregar;
         private DataGridViewTextBoxColumn fechaVencimiento;
         private DataGridViewTextBoxColumn monto;
         private DataGridViewCheckBoxColumn pagado;
         private DataGridViewTextBoxColumn medioPago;
         private DataGridViewTextBoxColumn fechaEmision;
+        private DataGridViewTextBoxColumn fechaPago;
         private DataGridViewButtonColumn acciones;
-        private Button btnAgregar;
+        private DataGridViewTextBoxColumn idCuota;
     }
 }

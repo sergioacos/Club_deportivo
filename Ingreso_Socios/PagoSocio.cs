@@ -44,7 +44,7 @@ namespace Ingreso_Socios
             {
                 string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                query = $"select c.fechaVencimiento, c.monto, c.medioPago, c.fechaEmision, c.periodo, s.idSocio from cuota c inner join socio s on c.idSocio = s.idSocio inner join persona p on p.idPersona = s.idPersona where p.dni = {this.dni.ToString()} order by c.fechaVencimiento";
+                query = $"select c.fechaVencimiento, c.monto, c.medioPago, c.fechaEmision, c.periodo, s.idSocio, c.idCuota, c.fechaPago from cuota c inner join socio s on c.idSocio = s.idSocio inner join persona p on p.idPersona = s.idPersona where p.dni = {this.dni.ToString()} order by c.fechaVencimiento";
 
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
@@ -61,10 +61,14 @@ namespace Ingreso_Socios
                         //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
                         //btnclm.Name = "Ver pagos";
                         int renglon = dgvCuotas.Rows.Add();
-                        dgvCuotas.Rows[renglon].Cells[0].Value = reader.GetDateTime(0);
-                        dgvCuotas.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
-                        dgvCuotas.Rows[renglon].Cells[3].Value = reader.GetString(2);
-                        dgvCuotas.Rows[renglon].Cells[4].Value = reader.GetDateTime(3).ToShortDateString();
+                        dgvCuotas.Rows[renglon].Cells["fechaVencimiento"].Value = reader.GetDateTime(0);
+                        dgvCuotas.Rows[renglon].Cells["monto"].Value = reader.GetFloat(1);
+                        dgvCuotas.Rows[renglon].Cells["medioPago"].Value = reader.GetString(2);
+                        dgvCuotas.Rows[renglon].Cells["fechaEmision"].Value = reader.GetDateTime(3).ToShortDateString();
+                        dgvCuotas.Rows[renglon].Cells["idCuota"].Value = reader.GetInt32(6);
+                        dgvCuotas.Rows[renglon].Cells["pagado"].Value = !reader.IsDBNull(7);
+                        dgvCuotas.Rows[renglon].Cells["fechaPago"].Value = reader.IsDBNull(7) ? "" : reader.GetDateTime(7).ToString();
+
                         periodo = reader.GetString(4);
                         idSocio = reader.GetInt32(5);
                     }
@@ -92,18 +96,21 @@ namespace Ingreso_Socios
 
             if (this.dgvCuotas.Columns[e.ColumnIndex].Name == "acciones")
             {
-                //Form pagar = new Pagar();
-                //pagar.ShowDialog();
+                if((bool)this.dgvCuotas.Rows[e.RowIndex].Cells["pagado"].Value == true)
+                {
+                    MessageBox.Show("Esta cuota ya está paga.");
+                    return;
+                }
+
 
                 DateTime vencimiento = (DateTime)dgvCuotas.Rows[e.RowIndex].Cells[0].Value;
                 float monto = (float)dgvCuotas.Rows[e.RowIndex].Cells[1].Value;
-                
+                int idCuota = (int)dgvCuotas.Rows[e.RowIndex].Cells["idCuota"].Value;
 
-                Pagar form = new Pagar();
-                form.txtVencimiento.Text = vencimiento.ToString();
-                form.txtMonto.Text = monto.ToString();
-                form.txtPeriodo.Text = periodo.ToString();
+
+                Pagar form = new Pagar(idCuota, vencimiento, monto, periodo);
                 form.ShowDialog();
+                CargarGrilla();
 
 
             }

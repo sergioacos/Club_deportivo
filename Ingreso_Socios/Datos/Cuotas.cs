@@ -114,5 +114,40 @@ namespace Ingreso_Socios.Datos
             }
         }
 
+        public static bool PagarCuota(int idCuota, string medioPago)
+        {
+            MySqlDataReader resultado;
+            DataTable tabla = new DataTable();
+
+            MySqlConnection sqlConn = new MySqlConnection();
+            try
+            {
+
+                sqlConn = Conexion.getInstancia().CrearConexion();
+
+                MySqlCommand comando = new MySqlCommand("PagarCuota", sqlConn);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("idCuota", MySqlDbType.Int64).Value = idCuota;
+                comando.Parameters.Add("medioPago", MySqlDbType.VarChar).Value = medioPago;
+
+                sqlConn.Open();
+                int cantModificaciones = comando.ExecuteNonQuery();
+
+                return cantModificaciones > 0;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                if (sqlConn.State == ConnectionState.Open)
+                {
+                    sqlConn.Close();
+                }
+            }
+
+        }
     }
 }
