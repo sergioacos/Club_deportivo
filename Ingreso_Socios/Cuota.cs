@@ -12,9 +12,12 @@ namespace Ingreso_Socios
 {
     public partial class Cuota : Form
     {
-        public Cuota()
+        private int idSocio;
+        public Cuota(int idSocio)
         {
             InitializeComponent();
+            this.idSocio = idSocio;
+            lblNro.Text = idSocio.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -26,11 +29,11 @@ namespace Ingreso_Socios
         {
 
             // Validamos los datos de todos los textboxes del formulario.
-            if (txtIdSocio.Value < 1)
-            {
-                MessageBox.Show("La id del socio debe ser mayor a 0.");
-                return;
-            }
+            //if (txtIdSocio.Value < 1)
+            //{
+            //    MessageBox.Show("La id del socio debe ser mayor a 0.");
+            //    return;
+           // }
 
             if (txtMonto.Text.Length == 0)
             {
@@ -51,16 +54,23 @@ namespace Ingreso_Socios
             }
 
             // Validamos si la ID de socio existe.
-            if (!Datos.Socios.ValidarIdSocio(((int)txtIdSocio.Value)))
-            { 
-                MessageBox.Show("El numero de socio es invalido.");
-                return;
-            }
+            //if (!Datos.Socios.ValidarIdSocio(((int)txtIdSocio.Value)))
+            //{ 
+            //    MessageBox.Show("El numero de socio es invalido.");
+            //    return;
+            // }
 
             // Creamos el registro de la base de datos y reportamos el resultado.
-            if (Datos.Cuotas.CrearCuota((int)txtIdSocio.Value, Convert.ToDouble(txtMonto.Text), DateOnly.FromDateTime(txtFechaVencimiento.Value), txtPeriodo.Text))
+            // if (Datos.Cuotas.CrearCuota((int)txtIdSocio.Value, Convert.ToDouble(txtMonto.Text), DateOnly.FromDateTime(txtFechaVencimiento.Value), txtPeriodo.Text))
+            // {
+            //     MessageBox.Show("La cuota se creó exitosamente.");
+            //     this.Close();
+            //     return;
+            // }
+            if (Datos.Cuotas.CrearCuota(Convert.ToInt32(lblNro.Text), Convert.ToDouble(txtMonto.Text), DateOnly.FromDateTime(txtFechaVencimiento.Value), txtPeriodo.Text))
             {
                 MessageBox.Show("La cuota se creó exitosamente.");
+                
                 this.Close();
                 return;
             }

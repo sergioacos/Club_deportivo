@@ -16,6 +16,8 @@ namespace Ingreso_Socios
     {
         private int dni;
         private string nombre;
+        int idSocio;
+        string periodo;
         public PagoSocio(string nombre, string apellido, int dni)
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace Ingreso_Socios
             {
                 string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                query = $"select c.fechaVencimiento, c.monto, c.medioPago, c.fechaEmision from cuota c inner join socio s on c.idSocio = s.idSocio inner join persona p on p.idPersona = s.idPersona where p.dni = {this.dni.ToString()} order by c.fechaVencimiento";
+                query = $"select c.fechaVencimiento, c.monto, c.medioPago, c.fechaEmision, c.periodo, s.idSocio from cuota c inner join socio s on c.idSocio = s.idSocio inner join persona p on p.idPersona = s.idPersona where p.dni = {this.dni.ToString()} order by c.fechaVencimiento";
 
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
@@ -50,8 +52,10 @@ namespace Ingreso_Socios
 
                 MySqlDataReader reader;
                 reader = comando.ExecuteReader();
+                
                 if (reader.HasRows)
                 {
+                    dgvCuotas.Rows.Clear();
                     while (reader.Read())
                     {
                         //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
@@ -61,6 +65,8 @@ namespace Ingreso_Socios
                         dgvCuotas.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
                         dgvCuotas.Rows[renglon].Cells[3].Value = reader.GetString(2);
                         dgvCuotas.Rows[renglon].Cells[4].Value = reader.GetDateTime(3).ToShortDateString();
+                        periodo = reader.GetString(4);
+                        idSocio = reader.GetInt32(5);
                     }
                 }
                 else
@@ -79,6 +85,38 @@ namespace Ingreso_Socios
                     sqlCon.Close();
                 }
             }
+        }
+
+        private void dgvCuotas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (this.dgvCuotas.Columns[e.ColumnIndex].Name == "acciones")
+            {
+                //Form pagar = new Pagar();
+                //pagar.ShowDialog();
+
+                DateTime vencimiento = (DateTime)dgvCuotas.Rows[e.RowIndex].Cells[0].Value;
+                float monto = (float)dgvCuotas.Rows[e.RowIndex].Cells[1].Value;
+                
+
+                Pagar form = new Pagar();
+                form.txtVencimiento.Text = vencimiento.ToString();
+                form.txtMonto.Text = monto.ToString();
+                form.txtPeriodo.Text = periodo.ToString();
+                form.ShowDialog();
+
+
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Cuota cuota = new Cuota(idSocio);
+            //cuota.lblNro.Text = this.idSocio;
+            cuota.ShowDialog();
+            CargarGrilla();
+
+
         }
     }
 }

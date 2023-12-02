@@ -41,9 +41,9 @@ namespace Ingreso_Socios
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            Form cuota = new Cuota();
-            cuota.ShowDialog();
-            CargarCuotas();
+            //Form cuota = new Cuota();
+            //cuota.ShowDialog();
+            //CargarCuotas();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

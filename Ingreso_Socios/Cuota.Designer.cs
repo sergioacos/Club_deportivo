@@ -31,14 +31,13 @@
             label1 = new Label();
             txtPeriodo = new TextBox();
             label3 = new Label();
-            txtIdSocio = new NumericUpDown();
             label2 = new Label();
             txtFechaVencimiento = new DateTimePicker();
             txtMonto = new TextBox();
             lblNSocio = new Label();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            ((System.ComponentModel.ISupportInitialize)txtIdSocio).BeginInit();
+            lblNro = new Label();
             SuspendLayout();
             // 
             // label1
@@ -67,18 +66,10 @@
             label3.TabIndex = 20;
             label3.Text = "Fecha de Vencimiento:";
             // 
-            // txtIdSocio
-            // 
-            txtIdSocio.Location = new Point(12, 27);
-            txtIdSocio.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
-            txtIdSocio.Name = "txtIdSocio";
-            txtIdSocio.Size = new Size(200, 23);
-            txtIdSocio.TabIndex = 19;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 53);
+            label2.Location = new Point(12, 35);
             label2.Name = "label2";
             label2.Size = new Size(43, 15);
             label2.TabIndex = 18;
@@ -95,7 +86,7 @@
             // 
             // txtMonto
             // 
-            txtMonto.Location = new Point(12, 71);
+            txtMonto.Location = new Point(12, 53);
             txtMonto.Name = "txtMonto";
             txtMonto.Size = new Size(200, 23);
             txtMonto.TabIndex = 16;
@@ -131,17 +122,26 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // lblNro
+            // 
+            lblNro.AutoSize = true;
+            lblNro.Location = new Point(118, 9);
+            lblNro.Name = "lblNro";
+            lblNro.Size = new Size(27, 15);
+            lblNro.TabIndex = 25;
+            lblNro.Text = "Nro";
+            // 
             // Cuota
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(229, 235);
+            Controls.Add(lblNro);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
             Controls.Add(label1);
             Controls.Add(txtPeriodo);
             Controls.Add(label3);
-            Controls.Add(txtIdSocio);
             Controls.Add(label2);
             Controls.Add(txtFechaVencimiento);
             Controls.Add(txtMonto);
@@ -149,7 +149,6 @@
             Name = "Cuota";
             Text = "Cuota";
             Load += Cuota_Load;
-            ((System.ComponentModel.ISupportInitialize)txtIdSocio).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -166,5 +165,6 @@
         private Label lblNSocio;
         private Button btnAceptar;
         private Button btnCancelar;
+        public Label lblNro;
     }
 }
