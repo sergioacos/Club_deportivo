@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             btnClientes = new Button();
-            btnPagos = new Button();
             btnActividades = new Button();
             btnSalir = new Button();
             lblUsuario = new Label();
@@ -48,19 +48,9 @@
             btnClientes.UseVisualStyleBackColor = true;
             btnClientes.Click += btnClientes_Click;
             // 
-            // btnPagos
-            // 
-            btnPagos.Location = new Point(12, 82);
-            btnPagos.Name = "btnPagos";
-            btnPagos.Size = new Size(148, 23);
-            btnPagos.TabIndex = 1;
-            btnPagos.Text = "Gestionar Pagos";
-            btnPagos.UseVisualStyleBackColor = true;
-            btnPagos.Click += btnPagos_Click;
-            // 
             // btnActividades
             // 
-            btnActividades.Location = new Point(12, 111);
+            btnActividades.Location = new Point(12, 82);
             btnActividades.Name = "btnActividades";
             btnActividades.Size = new Size(148, 23);
             btnActividades.TabIndex = 2;
@@ -70,7 +60,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(85, 169);
+            btnSalir.Location = new Point(85, 140);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 3;
@@ -89,15 +79,17 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Location = new Point(186, 12);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(191, 30);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(206, 177);
+            pictureBox1.Size = new Size(250, 179);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
             // btnASocio
             // 
-            btnASocio.Location = new Point(12, 140);
+            btnASocio.Location = new Point(12, 111);
             btnASocio.Name = "btnASocio";
             btnASocio.Size = new Size(148, 23);
             btnASocio.TabIndex = 6;
@@ -109,13 +101,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(409, 201);
+            ClientSize = new Size(453, 221);
             Controls.Add(btnASocio);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
             Controls.Add(btnSalir);
             Controls.Add(btnActividades);
-            Controls.Add(btnPagos);
             Controls.Add(btnClientes);
             Name = "Menu";
             Text = "Menu";
@@ -128,7 +119,6 @@
         #endregion
 
         private Button btnClientes;
-        private Button btnPagos;
         private Button btnActividades;
         private Button btnSalir;
         private Label lblUsuario;

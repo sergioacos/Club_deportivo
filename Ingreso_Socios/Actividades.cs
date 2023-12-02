@@ -17,9 +17,18 @@ namespace Ingreso_Socios
     public partial class Actividades : Form
     {
         public List<int> idActividades;
+        private bool mostrarGuardar;
         public Actividades()
         {
             InitializeComponent();
+        }
+
+
+        public Actividades(bool mostrarGuardar)
+        {
+
+            InitializeComponent();
+            button1.Visible = mostrarGuardar;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

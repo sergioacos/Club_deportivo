@@ -18,11 +18,12 @@ namespace Ingreso_Socios
         private string nombre;
         int idSocio;
         string periodo;
-        public PagoSocio(string nombre, string apellido, int dni)
+        public PagoSocio(string nombre, string apellido, int dni, int idSocio)
         {
             InitializeComponent();
             this.nombre = apellido + ", " + nombre;
             this.dni = dni;
+            this.idSocio = idSocio;
             lblNombre.Text = "Nombre: " + this.nombre;
             lblDni.Text = "DNI: " + this.dni.ToString();
         }

@@ -83,6 +83,9 @@ namespace Ingreso_Socios
 
                         dgvClientes.Rows[renglon].Cells[4].Value = reader.GetBoolean(4);
 
+
+                        dgvClientes.Rows[renglon].Cells["id"].Value = reader.IsDBNull(5) ? reader.IsDBNull(6) ? 0 : reader.GetInt32(6) : reader.GetInt32(5);
+
                         //dgvClientes.Rows[renglon].Cells[5].Value = reader.GetString(5);
                         if (!reader.IsDBNull(5))
                         {
@@ -123,9 +126,10 @@ namespace Ingreso_Socios
                 string nombre = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string apellido = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
                 int dni = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells[2].Value);
+                int idSocio = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells["id"].Value);
                 if (socio)
                 {
-                    Form form = new PagoSocio(nombre, apellido, dni);
+                    Form form = new PagoSocio(nombre, apellido, dni, idSocio);
                     form.ShowDialog();
                 }
                 else

@@ -41,7 +41,7 @@ namespace Ingreso_Socios
 
         private void btnActividades_Click(object sender, EventArgs e)
         {
-            Form actividades = new Actividades();
+            Form actividades = new Actividades(false);
             actividades.ShowDialog();
         }
 

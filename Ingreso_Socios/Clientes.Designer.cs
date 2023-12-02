@@ -30,6 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             dgvClientes = new DataGridView();
+            btnRegistrar = new Button();
+            personaBindingSource = new BindingSource(components);
             Apellido = new DataGridViewTextBoxColumn();
             Nombre = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -37,8 +39,7 @@
             AptoFisico = new DataGridViewCheckBoxColumn();
             Socio = new DataGridViewCheckBoxColumn();
             Acciones = new DataGridViewButtonColumn();
-            btnRegistrar = new Button();
-            personaBindingSource = new BindingSource(components);
+            id = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)personaBindingSource).BeginInit();
             SuspendLayout();
@@ -49,7 +50,7 @@
             dgvClientes.AllowUserToDeleteRows = false;
             dgvClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones });
+            dgvClientes.Columns.AddRange(new DataGridViewColumn[] { Apellido, Nombre, Column2, Column3, AptoFisico, Socio, Acciones, id });
             dgvClientes.Location = new Point(12, 51);
             dgvClientes.Name = "dgvClientes";
             dgvClientes.ReadOnly = true;
@@ -58,6 +59,20 @@
             dgvClientes.TabIndex = 0;
             dgvClientes.CellClick += dgvClientes_CellClick;
             dgvClientes.CellContentClick += dataGridView1_CellContentClick;
+            // 
+            // btnRegistrar
+            // 
+            btnRegistrar.Location = new Point(12, 12);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(141, 23);
+            btnRegistrar.TabIndex = 1;
+            btnRegistrar.Text = "Registrar Cliente";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
+            // 
+            // personaBindingSource
+            // 
+            personaBindingSource.DataSource = typeof(Persona);
             // 
             // Apellido
             // 
@@ -104,19 +119,13 @@
             Acciones.Text = "Ver pagos";
             Acciones.UseColumnTextForButtonValue = true;
             // 
-            // btnRegistrar
+            // id
             // 
-            btnRegistrar.Location = new Point(12, 12);
-            btnRegistrar.Name = "btnRegistrar";
-            btnRegistrar.Size = new Size(141, 23);
-            btnRegistrar.TabIndex = 1;
-            btnRegistrar.Text = "Registrar Cliente";
-            btnRegistrar.UseVisualStyleBackColor = true;
-            btnRegistrar.Click += btnRegistrar_Click;
-            // 
-            // personaBindingSource
-            // 
-            personaBindingSource.DataSource = typeof(Persona);
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Resizable = DataGridViewTriState.False;
+            id.Visible = false;
             // 
             // Clientes
             // 
@@ -152,5 +161,6 @@
         private DataGridViewCheckBoxColumn AptoFisico;
         private DataGridViewCheckBoxColumn Socio;
         private DataGridViewButtonColumn Acciones;
+        private DataGridViewTextBoxColumn id;
     }
 }
