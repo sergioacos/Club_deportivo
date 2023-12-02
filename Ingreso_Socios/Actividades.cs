@@ -16,6 +16,7 @@ namespace Ingreso_Socios
 {
     public partial class Actividades : Form
     {
+        public List<int> idActividades;
         public Actividades()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace Ingreso_Socios
             {
                 string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                query = "select nombre,costo from actividad order by nombre";
+                query = "select idActividad, nombre,costo from actividad order by nombre";
 
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
@@ -51,10 +52,9 @@ namespace Ingreso_Socios
                     while (reader.Read())
                     {
                         int renglon = dgvActividades.Rows.Add();
-                        dgvActividades.Rows[renglon].Cells[0].Value = reader.GetString(0);
-                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetFloat(1);
-
-
+                        dgvActividades.Rows[renglon].Cells[0].Value = reader.GetInt32(0);
+                        dgvActividades.Rows[renglon].Cells[1].Value = reader.GetString(1);
+                        dgvActividades.Rows[renglon].Cells[2].Value = reader.GetFloat(2);
                     }
                 }
                 else
@@ -78,25 +78,28 @@ namespace Ingreso_Socios
         private void button1_Click(object sender, EventArgs e)
         {
             List<string> actividades = new List<string>();
+            this.idActividades = new List<int>();
             foreach (DataGridViewRow row in dgvActividades.Rows)
             {
-                bool isChecked = Convert.ToBoolean(row.Cells[2].Value);
+                bool isChecked = Convert.ToBoolean(row.Cells[3].Value);
                 if (isChecked)
                 {
 
                     actividades.Add(row.Cells["Nombre"].Value.ToString());
+                    this.idActividades.Add(Convert.ToInt32(row.Cells["idActividad"].Value.ToString()));
                     //MessageBox.Show(row.Cells["Nombre"].Value.ToString());
                 }
                 //MessageBox.Show("Listo");
 
             }
             string act = "";
-           
+
             for (int i = 0; i < actividades.Count; i++)
             {
-                act= act+ actividades[i].ToString()+", ";
+                act = act + actividades[i].ToString() + ", ";
             }
             MessageBox.Show("Las actividades a las que se inscribo son: " + act);
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

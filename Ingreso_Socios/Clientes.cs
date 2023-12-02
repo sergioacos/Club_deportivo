@@ -51,7 +51,7 @@ namespace Ingreso_Socios
             {
                 string query;
                 sqlCon = Conexion.getInstancia().CrearConexion();
-                query = "select p.apellido, p.nombre, p.dni, p.fechaNac, p.aptoFisico, s.idSocio from persona p left join socio s on p.idPersona = s.idPersona order by p.apellido";
+                query = "select p.apellido, p.nombre, p.dni, p.fechaNac, p.aptoFisico, s.idSocio, ns.idNoSocio from persona p left join socio s on p.idPersona = s.idPersona left join nosocio ns on ns.idPersona = p.idPersona order by p.apellido";
 
                 MySqlCommand comando = new MySqlCommand(query, sqlCon);
                 comando.CommandType = CommandType.Text;
@@ -120,17 +120,17 @@ namespace Ingreso_Socios
             if (this.dgvClientes.Columns[e.ColumnIndex].Name == "Acciones")
             {
                 bool socio = (bool)dgvClientes.Rows[e.RowIndex].Cells[5].Value;
+                string nombre = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string apellido = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int dni = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells[2].Value);
                 if (socio)
                 {
-                    string nombre = dgvClientes.Rows[e.RowIndex].Cells[0].Value.ToString();
-                    string apellido = dgvClientes.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    int dni = Convert.ToInt32(dgvClientes.Rows[e.RowIndex].Cells[2].Value);
                     Form form = new PagoSocio(nombre, apellido, dni);
                     form.ShowDialog();
                 }
                 else
                 {
-                    Form detalle = new Actividades();
+                    Form detalle = new PagoNoSocio(nombre, apellido, dni);
                     detalle.ShowDialog();
                 }
 
