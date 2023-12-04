@@ -29,8 +29,8 @@ namespace Ingreso_Socios
         {
             Form clientes = new Clientes();
             clientes.ShowDialog();
-            
-            
+
+
         }
 
         private void btnASocio_Click(object sender, EventArgs e)
@@ -54,6 +54,12 @@ namespace Ingreso_Socios
         {
             Form pagos = new Pagos();
             pagos.ShowDialog();
+        }
+
+        private void btnDeudor_Click(object sender, EventArgs e)
+        {
+            Form deuda = new sociosDeuda();
+            deuda.ShowDialog();
         }
     }
 }

@@ -35,12 +35,13 @@
             lblUsuario = new Label();
             pictureBox1 = new PictureBox();
             btnASocio = new Button();
+            btnDeudor = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnClientes
             // 
-            btnClientes.Location = new Point(12, 53);
+            btnClientes.Location = new Point(21, 85);
             btnClientes.Name = "btnClientes";
             btnClientes.Size = new Size(148, 23);
             btnClientes.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // btnActividades
             // 
-            btnActividades.Location = new Point(12, 82);
+            btnActividades.Location = new Point(21, 114);
             btnActividades.Name = "btnActividades";
             btnActividades.Size = new Size(148, 23);
             btnActividades.TabIndex = 2;
@@ -60,7 +61,7 @@
             // 
             // btnSalir
             // 
-            btnSalir.Location = new Point(85, 140);
+            btnSalir.Location = new Point(94, 172);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(75, 23);
             btnSalir.TabIndex = 3;
@@ -71,7 +72,7 @@
             // lblUsuario
             // 
             lblUsuario.AutoSize = true;
-            lblUsuario.Location = new Point(12, 9);
+            lblUsuario.Location = new Point(21, 30);
             lblUsuario.Name = "lblUsuario";
             lblUsuario.Size = new Size(53, 15);
             lblUsuario.TabIndex = 4;
@@ -89,7 +90,7 @@
             // 
             // btnASocio
             // 
-            btnASocio.Location = new Point(12, 111);
+            btnASocio.Location = new Point(21, 143);
             btnASocio.Name = "btnASocio";
             btnASocio.Size = new Size(148, 23);
             btnASocio.TabIndex = 6;
@@ -97,11 +98,22 @@
             btnASocio.UseVisualStyleBackColor = true;
             btnASocio.Click += btnASocio_Click;
             // 
+            // btnDeudor
+            // 
+            btnDeudor.Location = new Point(21, 56);
+            btnDeudor.Name = "btnDeudor";
+            btnDeudor.Size = new Size(148, 23);
+            btnDeudor.TabIndex = 7;
+            btnDeudor.Text = "Con Cuota a Vencer";
+            btnDeudor.UseVisualStyleBackColor = true;
+            btnDeudor.Click += btnDeudor_Click;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(453, 221);
+            Controls.Add(btnDeudor);
             Controls.Add(btnASocio);
             Controls.Add(pictureBox1);
             Controls.Add(lblUsuario);
@@ -124,5 +136,6 @@
         private Label lblUsuario;
         private PictureBox pictureBox1;
         private Button btnASocio;
+        private Button btnDeudor;
     }
 }
